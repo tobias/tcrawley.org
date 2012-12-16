@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>avl-rb-clojure-intro</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-03-27 19:32:18 EDT"/>
+<meta name="author" content="Tobias Crawley"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+
+<link rel="stylesheet" type="text/css" href="common.css" />
+<link rel="stylesheet" type="text/css" href="screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="projection.css" media="projection" />
+<link rel="stylesheet" type="text/css" href="presenter.css" media="presenter" />
+
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">avl-rb-clojure-intro</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Intro to Clojure</a>
+<ul>
+<li><a href="#sec-1-1">1.1 What is Clojure?</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1 5 years old</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2 Parts of Clojure</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 Truthiness</a></li>
+<li><a href="#sec-1-2-2">1.2.2 Primitives - Strings</a>
+<ul>
+<li><a href="#sec-1-2-2-1">1.2.2.1 No string interp</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-3">1.2.3 Primitives - Characters</a>
+<ul>
+<li><a href="#sec-1-2-3-1">1.2.3.1 but w/o single quotes</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-4">1.2.4 Primitives - Numbers</a></li>
+<li><a href="#sec-1-2-5">1.2.5 Primitives - Symbols</a></li>
+<li><a href="#sec-1-2-6">1.2.6 Primitives - Keywords</a></li>
+<li><a href="#sec-1-2-7">1.2.7 Collections - Lists</a>
+<ul>
+<li><a href="#sec-1-2-7-1">1.2.7.1 head is fast</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-8">1.2.8 Collections - Vectors</a>
+<ul>
+<li><a href="#sec-1-2-8-1">1.2.8.1 tail is fast</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-9">1.2.9 Collections - Maps</a></li>
+<li><a href="#sec-1-2-10">1.2.10 Collections - Sets</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 Immutability</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1 def creates a 'var'</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4 Lazy Sequences</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1 range is infinite</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-5">1.5 Function Definition</a>
+<ul>
+<li><a href="#sec-1-5-1">1.5.1 this is just data</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-6">1.6 Function Definition</a>
+<ul>
+<li><a href="#sec-1-6-1">1.6.1 compare to ruby blocks</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-7">1.7 Reference Types</a>
+<ul>
+<li><a href="#sec-1-7-1">1.7.1 STM &amp; MVCC</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-8">1.8 Let &amp; Desctructuring</a>
+<ul>
+<li><a href="#sec-1-8-1">1.8.1 values only bound inside let</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9">1.9 Let &amp; Destructuring</a></li>
+<li><a href="#sec-1-10">1.10 REPL</a>
+<ul>
+<li><a href="#sec-1-10-1">1.10.1 think irb</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-11">1.11 Demo!</a></li>
+<li><a href="#sec-1-12">1.12 Pros/Cons</a></li>
+<li><a href="#sec-1-13">1.13 Who uses Clojure?</a></li>
+<li><a href="#sec-1-14">1.14 Resources</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Intro to Clojure &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-1">
+
+
+<img src="clojure-logo.png" style="display: block; margin: auto;"/>
+
+<div style="text-align:right; font-style: italic; font-size: 0.7em;padding-right: 4em;">
+  Toby Crawley<br/>
+  Asheville.rb<br/>
+  March 27, 2012
+</div>
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> What is Clojure? &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>A Lisp
+<ul>
+<li>Homoiconic - Code as data
+</li>
+<li>Functional
+<ul>
+<li><b>Not</b> Object Oriented
+</li>
+<li>built around immutable data structures
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+<li>Runs on the JVM
+<ul>
+<li>Embraces Java
+</li>
+</ul>
+
+</li>
+<li>ClojureCLR, ClojureScript, clojure-py are alt. impls.
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 5 years old &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<ul>
+<li>1958
+</li>
+<li>s-expressions (symbolic)
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Parts of Clojure &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li>very little syntax
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Truthiness &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<ul>
+<li><code>nil</code> and <code>false</code> are <i>false</i>
+</li>
+<li><code>true</code> and everything else is <i>true</i>, including empty lists
+</li>
+<li>same as ruby
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Primitives - Strings &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<ul>
+<li>Just java strings
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure"><span style="color: #297f29; font-style: italic;">"I'm a string"</span>
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-2-2-1" class="outline-5">
+<h5 id="sec-1-2-2-1"><span class="section-number-5">1.2.2.1</span> No string interp &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> Primitives - Characters &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<ul>
+<li>Just java characters
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">\a \b \x  
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-2-3-1" class="outline-5">
+<h5 id="sec-1-2-3-1"><span class="section-number-5">1.2.3.1</span> but w/o single quotes &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h5>
+<div class="outline-text-5" id="text-1-2-3-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Primitives - Numbers &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+
+
+
+<pre class="src src-clojure">42   <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">long</span>
+42N  <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">clojure.lang.BigInt</span>
+4.2  <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">double</span>
+4.2M <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">java.math.BigDecimal</span>
+22/7 <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">ratio</span>
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> Primitives - Symbols &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-5">
+
+<ul>
+<li>names of things
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">str
+println
+clojure.string/split
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> Primitives - Keywords &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-6">
+
+<ul>
+<li>identifiers, offer fast equality
+</li>
+<li>often used as map keys
+</li>
+<li>are functions of maps
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure"><span style="color: #008b8b;">:foo</span>
+<span style="color: #008b8b;">:what-is-this-thing-in-my-hair?</span>
+<span style="color: #008b8b;">:some.namespace/bar</span>
+
+(<span style="color: #008b8b;">:key</span> {<span style="color: #008b8b;">:key</span> <span style="color: #297f29; font-style: italic;">"value"</span>}) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; "value"</span>
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-7" class="outline-4">
+<h4 id="sec-1-2-7"><span class="section-number-4">1.2.7</span> Collections - Lists &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-7">
+
+<ul>
+<li>implemented as a linked list
+</li>
+<li>have special eval semantics 
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">(1 2 3 4)
+
+(<span style="color: #4f4047;">str</span> <span style="color: #297f29; font-style: italic;">"a"</span> <span style="color: #297f29; font-style: italic;">"b"</span> <span style="color: #297f29; font-style: italic;">"c"</span>)
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-2-7-1" class="outline-5">
+<h5 id="sec-1-2-7-1"><span class="section-number-5">1.2.7.1</span> head is fast &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h5>
+<div class="outline-text-5" id="text-1-2-7-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-8" class="outline-4">
+<h4 id="sec-1-2-8"><span class="section-number-4">1.2.8</span> Collections - Vectors &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-8">
+
+<ul>
+<li>an array
+</li>
+<li>generally used unless list semantics or performance needed
+</li>
+<li>functions of index
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">[1 2 3 4]
+
+([1 2 3 4] 1) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; 2</span>
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-2-8-1" class="outline-5">
+<h5 id="sec-1-2-8-1"><span class="section-number-5">1.2.8.1</span> tail is fast &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h5>
+<div class="outline-text-5" id="text-1-2-8-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-9" class="outline-4">
+<h4 id="sec-1-2-9"><span class="section-number-4">1.2.9</span> Collections - Maps &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-9">
+
+<ul>
+<li>analogous to a Ruby Hash 
+</li>
+<li>functions of keys
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">{<span style="color: #008b8b;">:a</span> <span style="color: #008b8b;">:b</span>, <span style="color: #008b8b;">:c</span> <span style="color: #008b8b;">:d</span>}
+
+({<span style="color: #008b8b;">:key</span> <span style="color: #297f29; font-style: italic;">"value"</span>} <span style="color: #008b8b;">:key</span>) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; "value"</span>
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-10" class="outline-4">
+<h4 id="sec-1-2-10"><span class="section-number-4">1.2.10</span> Collections - Sets &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h4>
+<div class="outline-text-4" id="text-1-2-10">
+
+<ul>
+<li>functions of their members
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">#{1 2 3 4}
+
+(#{<span style="color: #297f29; font-style: italic;">"yes"</span> <span style="color: #297f29; font-style: italic;">"no"</span>} <span style="color: #297f29; font-style: italic;">"yes"</span>)   <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; "yes"</span>
+(#{<span style="color: #297f29; font-style: italic;">"yes"</span> <span style="color: #297f29; font-style: italic;">"no"</span>} <span style="color: #297f29; font-style: italic;">"maybe"</span>) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; nil</span>
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Immutability &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+
+
+<pre class="src src-clojure">(<span style="color: #5c5c5c;">def</span> <span style="color: #0d27b5;">x</span> {<span style="color: #008b8b;">:a</span> <span style="color: #008b8b;">:b</span>})
+(<span style="color: #4f4047;">assoc</span> x <span style="color: #008b8b;">:c</span> <span style="color: #008b8b;">:d</span>) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; {:a :b, :c :d}</span>
+x               <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; {:a :b}</span>
+
+(<span style="color: #5c5c5c;">def</span> <span style="color: #0d27b5;">y</span> [1 2 3])
+(<span style="color: #4f4047;">conj</span> y 4)      <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; [1 2 3 4]</span>
+y               <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; [1 2 3]</span>
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> def creates a 'var' &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+<ul>
+<li>internal structure is shared
+</li>
+<li>makes concurrency easier
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Lazy Sequences &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-4">
+
+<ul>
+<li>values in the sequence aren't realized until needed
+</li>
+<li>allows working with large/infinite datasets
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">(<span style="color: #4f4047;">take</span> 10 (<span style="color: #4f4047;">range</span>)) <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; (0 1 2 3 4 5 6 7 8 9)</span>
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> range is infinite &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-4-1">
+
+<ul>
+<li>take itself returns a lazy sequence
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Function Definition &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-5">
+
+<ul>
+<li>named
+
+
+
+<pre class="src src-clojure">(<span style="color: #5c5c5c;">defn</span> <span style="color: #0d27b5;">ham-is-good</span> [a b]
+  (<span style="color: #4f4047;">println</span> (<span style="color: #170ce4;">if</span> (<span style="color: #170ce4;">or</span> (<span style="color: #4f4047;">=</span> a <span style="color: #297f29; font-style: italic;">"ham"</span>)
+                   (<span style="color: #4f4047;">=</span> b <span style="color: #297f29; font-style: italic;">"ham"</span>))
+             <span style="color: #297f29; font-style: italic;">"Ham goes good with anything!"</span>
+             (<span style="color: #4f4047;">str</span> a <span style="color: #297f29; font-style: italic;">" and "</span> b <span style="color: #297f29; font-style: italic;">"? Grody!"</span>))))
+</pre>
+
+
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> this is just data &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-5-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Function Definition &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-6">
+
+<ul>
+<li>anonymous - lambdas
+
+
+
+<pre class="src src-clojure">(<span style="color: #4f4047;">fn</span> [v]
+  (<span style="color: #4f4047;">println</span> <span style="color: #297f29; font-style: italic;">"I got"</span> v))
+
+#(<span style="color: #4f4047;">println</span> <span style="color: #297f29; font-style: italic;">"I got"</span> %)
+</pre>
+
+
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> compare to ruby blocks &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-6-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Reference Types &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-7">
+
+<ul>
+<li>allow for controlled mutability
+</li>
+<li>can only be manipulated via special functions
+</li>
+<li>mutation occurs within a transaction
+</li>
+<li>must be explicitly dereferenced
+</li>
+</ul>
+
+
+
+
+<pre class="src src-clojure">(<span style="color: #5c5c5c;">def</span> <span style="color: #0d27b5;">an-atom</span> (<span style="color: #4f4047;">atom</span> 0))
+
+(<span style="color: #4f4047;">swap!</span> an-atom inc)
+
+@an-atom <span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">=&gt; 1</span>
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1"><span class="section-number-4">1.7.1</span> STM &amp; MVCC &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-7-1">
+
+<ul>
+<li>atoms - single changing value
+</li>
+<li>agents - asynchronous update of a single value
+</li>
+<li>refs - mutliple coordinated changing values; explicit (dosync)
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Let &amp; Desctructuring &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-8">
+
+<ul>
+<li>bind values in a closure
+
+
+
+<pre class="src src-clojure">(<span style="color: #170ce4;">let</span> [full-name (some-name-producing-function)
+      [first-name last-name] 
+        (split full-name #<span style="color: #297f29; font-style: italic;">" "</span>)]
+  (<span style="color: #4f4047;">println</span> full-name <span style="color: #297f29; font-style: italic;">"splits into"</span> 
+           first-name last-name))
+</pre>
+
+
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1"><span class="section-number-4">1.8.1</span> values only bound inside let &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-8-1">
+
+<ul>
+<li>introduces destructuring
+</li>
+<li>aka structural binding
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Let &amp; Destructuring &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-9">
+
+
+
+
+<pre class="src src-clojure">(<span style="color: #170ce4;">let</span> [point [123 456]
+      [x-coord y-coord] point]
+  (<span style="color: #5c5c5c;">defn</span> <span style="color: #0d27b5;">draw-something</span>
+    [height width 
+     {<span style="color: #008b8b;">:keys</span> [color opacity] <span style="color: #008b8b;">:as</span> options}]
+    (draw-square x-coord y-coord height 
+                 width color opacity)
+    (something-else-that-wants-options options)))
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> REPL &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-10">
+
+<ul>
+<li>the Read-Eval-Print Loop
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-10-1" class="outline-4">
+<h4 id="sec-1-10-1"><span class="section-number-4">1.10.1</span> think irb &nbsp;&nbsp;&nbsp;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-1-10-1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Demo! &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-11">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Pros/Cons &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-12">
+
+<ul>
+<li>pros:
+<ul>
+<li>write code with less errors
+</li>
+<li>bend your brain
+</li>
+<li>access to all Java libraries
+</li>
+<li>safe(r) concurrency
+</li>
+</ul>
+
+</li>
+<li>cons:
+<ul>
+<li>have to learn Java as well
+</li>
+<li>young ecosystem
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Who uses Clojure? &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-13">
+
+<ul>
+<li>Twitter
+</li>
+<li>Heroku
+</li>
+<li>Datomic
+</li>
+<li>World Singles
+</li>
+<li>Sonian
+</li>
+<li>Runa
+</li>
+<li>Me! (therefore Red Hat)
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Resources &nbsp;&nbsp;&nbsp;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-1-14">
+
+<ul>
+<li>Clojure Koans - <a href="https://github.com/functional-koans/clojure-koans">https://github.com/functional-koans/clojure-koans</a>
+</li>
+<li>4clojure - <a href="http://www.4clojure.com/">http://www.4clojure.com/</a>
+</li>
+<li>#clojure on freenode
+</li>
+<li>clojure@googlegroups.com
+</li>
+<li>books
+<ul>
+<li>Programming Clojure - Stuart Halloway
+</li>
+<li>Joy of Clojure - Michael Fogus &amp; Chris Houser
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+
+
+
+
+<script type="text/javascript" src="org-html-slideshow.js"></script>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-03-27 19:32:18 EDT</p>
+<p class="author">Author: Tobias Crawley</p>
+<p class="creator">Org version 7.7 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

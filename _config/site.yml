@@ -1,0 +1,9 @@
+title: tcrawley.org
+
+profiles:
+  staging:
+  production:
+    base_url: http://tcrawley.org/
+    deploy:
+      host: tcrawley.org
+      path: /home/tcrawley/tcrawley.org
