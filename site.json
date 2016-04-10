@@ -1,0 +1,99 @@
+{
+  "site": {
+    "title": "Toby Crawley",
+    "url": "http://tcrawley.org",
+    "twitter": "http://twitter.com/tcrawley",
+    "github": "https://github.com/tobias",
+    "linkedin": "https://www.linkedin.com/in/tobycrawley",
+    "featuredProjects": [
+      {"name": "WildFly Swarm",
+       "url": "http://wildfly-swarm.io",
+       "description": "A microservices platform based on the WildFly application server"},
+      {"name": "Immutant",
+       "url": "http://immutant.org",
+       "description": "Suite of Clojure libraries for web development"},
+      {"name": "Clojars",
+       "url": "https://clojars.org",
+       "description": "The Clojure community package repository"},
+      {"name": "TorqueBox",
+       "url": "http://torquebox.org",
+       "description": "A JRuby application platform"},
+      {"name": "Vert.x mod-lang-clojure",
+       "url": "https://github.com/vert-x/mod-lang-clojure",
+       "description": "Clojure language bindings for Vert.x 2.x"}],
+    "createdProjects": [
+      {"name": "backstage", "url":
+       "https://github.com/torquebox/backstage"},
+      {"name": "boot-immutant", "url":
+       "https://github.com/immutant/boot-immutant"},
+      {"name": "boot-jruby", "url":
+       "https://github.com/tobias/boot-jruby"},
+      {"name": "clj.rb", "url": "https://github.com/tobias/clj.rb"},
+      {"name": "credit_card_validator", "url": "https://github.com/tobias/credit_card_validator"},
+      {"name": "downplay-mode", "url": "https://github.com/tobias/downplay-mode"},
+      {"name": "dynapath", "url": "https://github.com/tobias/dynapath"},
+      {"name": "github-rss", "url": "https://github.com/tobias/github-rss"},
+      {"name": "immutant-transit", "url": "https://github.com/immutant/immutant-transit"},
+      {"name": "lein-immutant", "url":
+       "https://github.com/immutant/lein-immutant"},
+      {"name": "lein-webdav", "url": "https://github.com/immutant/lein-webdav"},
+      {"name": "proddbot", "url":
+       "https://github.com/tobias/proddbot"},
+      {"name": "progress", "url":
+       "https://github.com/tobias/progress"},
+      {"name": "ShimDandy", "url":
+       "https://github.com/projectodd/shimdandy"},
+      {"name": "supersport", "url":
+       "https://github.com/tobias/supersport"},
+      {"name": "twitter4j4r", "url": "https://github.com/tobias/twitter4j4r"},
+      {"name": "zendesk_remote_auth", "url": "https://github.com/viewbook/zendesk_remote_auth/commits?author=tobias"}],
+    "contributedProjects": [
+      {"name": "autodoc", "url": "https://github.com/tomfaulhaber/autodoc/commits?author=tobias"},
+      {"name": "awesome_print", "url": "https://github.com/michaeldv/awesome_print/commits?author=tobias"},
+      {"name": "awestruct", "url":
+       "https://github.com/awestruct/awestruct/commits?author=tobias"},
+      {"name": "Boot", "url":
+       "https://github.com/boot-clj/boot/commits?author=tobias"},
+      {"name": "Ceylon", "url": "http://ceylon-lang.org/"},
+      {"name": "Cider", "url": "https://github.com/clojure-emacs/cider/commits?author=tobias"},
+      {"name": "Clojure", "url": "https://github.com/clojure/clojure/commits?author=tobias"},
+      {"name": "clojure-maven-plugin", "url": "https://github.com/talios/clojure-maven-plugin/commits?author=tobias"},
+      {"name": "codox", "url":
+       "https://github.com/weavejester/codox/commits?author=tobias"},
+      {"name": "JRuby", "url": "https://github.com/jruby/jruby/commits?author=tobias"},
+      {"name": "lazybot", "url":
+       "https://github.com/Raynes/lazybot/commits?author=tobias"},
+      {"name": "Leiningen", "url": "https://github.com/technomancy/leiningen/commits?author=tobias"},
+      {"name": "leinjacker", "url":
+       "https://github.com/sattvik/leinjacker/commits?author=tobias"},
+      {"name": "Pomegranate", "url":
+       "https://github.com/cemerick/pomegranate/commits?author=tobias"},
+      {"name": "REPL-y", "url": "https://github.com/trptcolin/reply/commits?author=tobias"},
+      {"name": "Ring", "url": "https://github.com/ring-clojure/ring/commits?author=tobias"},
+      {"name": "Sente", "url": "https://github.com/ptaoussanis/sente/commits?author=tobias"},
+      {"name": "Spiral", "url": "https://github.com/dgrnbrg/spiral/commits?author=tobias"},
+      {"name": "swank-clojure", "url":
+       "https://github.com/technomancy/swank-clojure/commits?author=tobias"},
+      {"name": "Vert.x", "url": "https://github.com/eclipse/vert.x/commits?author=tobias"},
+      {"name": "wunderboss", "url":
+       "https://github.com/projectodd/wunderboss/commits?author=tobias"}],
+    "presentations": [
+      {"name": "Introduction to Immutant 2", "url": "https://github.com/tobias/triclojure-immutant-preso", "location": "TriClojure 2014"},
+      {"name": "Introduction to Immutant 2", "url": "https://github.com/tobias/den-of-clojure-preso", "location": "Den Of Clojure 2014"},
+      {"name": "Introduction to TorqueBox 4", "url": "https://github.com/tobias/boulder-rb-preso", "location": "Boulder Ruby Group 2014"},
+      {"name": "Building decoupled polyglot applications with Vert.x", "url": "/presentations/codemash-vertx-2014/", "location": "Codemash 2014"},
+      {"name": "Building Vert.x applications with Clojure", "url": "presentations/eclipsecon-vertx-2014/", "location": "EclipseCon 2014"},
+      {"name": "Developing Asynchronous Polyglot Applications with Vert.x",
+       "url":  "https://www.youtube.com/watch?v=MXrNAXGOSOg",
+       "location": "Clojure/Conj 2013",
+       "video": true},
+      {"name": "Procrastination as a pattern for polyglot interchange", "url": "/presentations/procrastination.pdf", "location": "TriClojure 2013"},
+      {"name": "Simple scalability with TorqueBox", "url": "/presentations/torquebox-rubyconfbr.pdf", "location": "RubyConf Brasil 2012"},
+      {"name": "Simplify your infrastructure with TorqueBox", "url": "/presentations/torquebox-jrubyconfeu-2012.pdf", "location": "JRubyConfEU 2012"},
+      {"name": "TorqueBox", "url": "/presentations/torquebox-raleighrb-2011.pdf", "location": "Raleigh.rb 2011"},
+      {"name": "TorqueBox", "url": "/presentations/torquebox-charlotterb-2011.pdf", "location": "Charlotte.rb 2011"},
+
+      {"name": "The Polyglot Future of JBoss AS", "url": "/presentations/devignition_2011.pdf", "location": "DevIgnition 2011"},
+      {"name": "The Beauty of Ruby with Power of Java", "url": "/presentations/torquebox-oscon-2011.pdf", "location": "OSCon 2011"}]}}
+
+

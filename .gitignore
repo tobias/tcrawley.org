@@ -1,4 +1,7 @@
-.awestruct
-.rvmrc
 .sass-cache
 _site
+*.swp
+_tmp
+node_modules
+build
+

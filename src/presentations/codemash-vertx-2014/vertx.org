@@ -1,0 +1,262 @@
+#+Title: Vert.x
+#+Author: Toby Crawley
+#+Email: toby@tcrawley.org
+
+#+OPTIONS: toc:nil reveal_center:t reveal_progress:nil reveal_history:t reveal_control:nil
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_SPEED: fast
+#+REVEAL_THEME: custom
+#+REVEAL_HLEVEL: 1
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Developing decoupled polyglot applications with Vert.x.">
+#+REVEAL_EXTRA_CSS: custom.css
+#+REVEAL_TITLE_SLIDE_TEMPLATE: <div id="title-slide"><h2>Building decoupled polyglot applications with</h2><img src="vertx-logo.png"><h3>Toby Crawley</h3><h4>CodeMash 2014</h4></div>
+  
+# Polyglot projects?
+# Heard of Vert.x?
+# used Vert.x?
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+  
+  - [[http://vertx.io]]
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a *lightweight*, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+
+* Lightweight
+#+ATTR_REVEAL: :frag roll-in
+  Small distribution: *5 MB*
+#+ATTR_REVEAL: :frag roll-in
+  Efficient with resources
+#+ATTR_REVEAL: :frag roll-in
+  Small, generally consistent API
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a lightweight, *high performance* application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+* High Performance
+#+ATTR_REVEAL: :frag roll-in
+  *650,000 requests/second* - http://bit.ly/vertxbench
+#+ATTR_REVEAL: :frag roll-in
+  Based on Netty - http://netty.io
+#+ATTR_REVEAL: :frag roll-in
+  Primarily asynchronous
+
+* Why Async?
+* Why Async?
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :reveal_data_state: cited dark-bg
+  :END:
+  [[./standing2.jpg]]
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a lightweight, high performance *application platform* for the JVM that's designed for modern mobile, web, and enterprise applications.”
+
+* Application Platform
+#+ATTR_REVEAL: :frag roll-in
+  Run multiple applications (/Verticles/) in one instance
+#+ATTR_REVEAL: :frag roll-in
+  Simple inter-component communication (/EventBus/)
+#+ATTR_REVEAL: :frag roll-in
+  Clustering
+#+ATTR_REVEAL: :frag roll-in
+  High Availability
+#+ATTR_REVEAL: :frag roll-in
+  Polyglot
+
+* Polyglot
+   - Java
+   - JRuby
+   - Jython
+   - JavaScript/CoffeeScript (Rhino, DynJS*, Nashorn*)
+   - Groovy
+   - Scala*
+   - PHP*
+   - Ceylon*
+   - Clojure*
+ 
+   (* in progress)
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a lightweight, high performance application platform for *the JVM* that's designed for modern mobile, web, and enterprise applications.”
+
+* The JVM
+#+ATTR_REVEAL: :frag roll-in
+  A mature VM 
+#+ATTR_REVEAL: :frag roll-in
+  Not just Java
+#+ATTR_REVEAL: :frag roll-in
+  Massive amount of libraries
+
+* What is Vert.x?
+  :PROPERTIES:
+  :reveal_data_state: quote
+  :END:
+  “Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern *mobile, web, and enterprise applications*.”
+
+* Enterprise
+  :PROPERTIES:
+  :reveal_data_state: no-shadow
+  :END:
+  [[./enterprise.png]]
+* Mobile, Enterprise
+  :PROPERTIES:
+  :reveal_data_state: no-shadow
+  :END:
+  [[./mobile-enterprise.png]]
+* Mobile, Web, Enterprise
+  :PROPERTIES:
+  :reveal_data_state: no-shadow
+  :END:
+  [[./enterprise-all.png]]
+
+* Mobile, Web, Enterprise
+#+ATTR_REVEAL: :frag roll-in
+  Many connections
+  #+ATTR_REVEAL: :frag roll-in
+  Constrained resources (To The Cloud!)
+  #+ATTR_REVEAL: :frag roll-in
+  Simple without being simplistic.
+* Reactor Loop
+  [[./reactor-loop.png]]
+* Reactor Loop(s)
+#+ATTR_REVEAL: :frag roll-in
+  Defaults to one/core
+#+ATTR_REVEAL: :frag roll-in
+  Verticle tied to one loop
+#+ATTR_REVEAL: :frag roll-in
+  Thread confinement
+* Distributed Event Bus
+#+ATTR_REVEAL: :frag roll-in
+  - Simple (String, int, byte[], etc) & structured (JSON) messages
+  - String-based addressing
+  - Publish/Subscribe 
+  - Point-to-point
+  - Request/Response
+  - Clusterable (Hazelcast, browser)
+  - Transient
+* Sample App
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :reveal_data_state: cited dark-bg
+  :END:
+  [[./fireside-chat.jpg]]
+
+* Sample Application
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :END:
+  [[./fireside-dia-simple.png]]
+* (URL of sample app was here)
+* Sample Application
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :END:
+  [[./fireside-dia-simple.png]]
+* Sample Application
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :END:
+  [[./fireside-dia.png]]
+  
+* Features
+#+ATTR_REVEAL: :frag roll-in
+  - /HTTP(S)/, TCP, UDP, WebSocket, SockJS servers
+  - HTTP(S), TCP, UDP, WebSocket, DNS clients
+  - /Distributed Event Bus/
+  - /Timers/
+  - /Async FS/
+  - SharedData
+  - Embeddable
+  
+* Gains
+  - Efficient
+  - Distributed Event Bus
+  - Thread Safety
+  - Polyglot
+  - Clusterable
+
+* Losses
+#+ATTR_REVEAL: :frag roll-in
+  Language ecosystems
+#+ATTR_REVEAL: :frag roll-in
+  Async complexity
+#+ATTR_REVEAL: :frag roll-in
+  Don't block the reactor loop
+* Don't block...
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :reveal_data_state: cited dark-bg
+  :END:
+  [[./reactor2.jpg]]
+
+* Don't block the reactor loop
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+#+ATTR_REVEAL: :frag roll-in
+  - =Thread.sleep()=
+  - =CountDownLatch.await()= or any other blocking operating from =java.util.concurrent=
+  - =while(true) {puts "King of the world!"}=
+  - Long-lived computationally intensive operations
+  - Blocking operations that might take some time to complete (e.g. DB query)
+
+* Worker Verticles
+#+ATTR_REVEAL: :frag roll-in
+  Runs on a thread pool, so /can/ block.
+#+ATTR_REVEAL: :frag roll-in
+  Still thread-confined by default.
+
+* Resources
+#+ATTR_REVEAL: :frag roll-in
+  http://vertx.io / https://github.com/vert-x/
+#+ATTR_REVEAL: :frag roll-in
+  NoDyn - http://nodyn.io
+#+ATTR_REVEAL: :frag roll-in
+  Yoke - http://pmlopes.github.io/yoke/
+#+ATTR_REVEAL: :frag roll-in
+  Vert.x Module Registry - http://modulereg.vertx.io/
+#+ATTR_REVEAL: :frag roll-in
+  https://github.com/tobias/vertx-codemash-2014/
+
+* Takeaways
+  - Build application components in any (supported) language
+  - Decouple components with the EventBus
+  - Fast & efficient
+  - Async, but not always
+
+* Questions?
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="suppress"
+  :reveal_data_state: cited dark-bg
+  :END:
+
+  [[./hands.jpg]]
+
+* Credits
+  - "Utility Work at 12th and Vine" - http://www.flickr.com/photos/taestell/10366923794/
+  - Star Trek screencaps - http://tos.trekcore.com/
+  - "21st Amendment Fireside Chat" - http://www.flickr.com/photos/adambarhan/10585487705/
+  - Bacon quotes - http://thinkexist.com/quotes/with/keyword/bacon/
+  - "Three Mile Island" - [[http://www.flickr.com/photos/subindie/955633308]]
+  - "please raise hand for assistance" - http://www.flickr.com/photos/coldtaxi/426162862/
+  

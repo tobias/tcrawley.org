@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>(Introduction to Vert.x)</title>
+<meta name="author" content="(Toby Crawley)"/>
+<link rel="stylesheet" href="./css/reveal.min.css">
+<link rel="stylesheet" href="./css/theme/serif.css" id="theme">
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="Intro to Vert.x.">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Introduction to Vert.x</h1>
+<h2>Toby Crawley</h2>
+<h2><a href="mailto:toby@tcrawley.org">toby@tcrawley.org</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>What is Vert.x?</h2>
+<ul class="org-ul">
+<li>Asynchronous polyglot application platform
+</li>
+<li>JVM based
+</li>
+<li>Similar to Node.js, but not a clone
+</li>
+<li>Thread safe (pretend you're the only one)
+</li>
+</ul>
+</section>
+<section id="sec-1-1" >
+
+<h3>Polyglot</h3>
+<ul class="org-ul">
+<li>Java
+</li>
+<li>JRuby
+</li>
+<li>Jython
+</li>
+<li>JavaScript/CoffeeScript (Rhino/DynJS (in-progress))
+</li>
+<li>Groovy
+</li>
+<li>Scala (in-progress)
+</li>
+<li>Clojure (in-progress)
+</li>
+<li>All with a similar API
+</li>
+</ul>
+
+</section>
+<section id="sec-1-2" >
+
+<h3>Provides</h3>
+<ul class="org-ul">
+<li>Async TCP/HTTP/HTTPS/Websocket clients
+</li>
+<li>Async TCP/HTTP/HTTPS/Websocket servers
+</li>
+<li>Distributed event bus
+</li>
+<li>Timers
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Why Async?</h2>
+<ul class="org-ul">
+<li>What?
+</li>
+<li>Back to work!
+</li>
+<li>Thousands of concurrent connections
+</li>
+<li>Speed
+</li>
+</ul>
+<p class="fragment roll-in">
+415,000 requests/sec
+</p>
+</section>
+<section id="sec-2-1" >
+
+<h3>Java Example</h3>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0b7d07;">HttpClient</span> <span style="color: #4f4047;">client</span> = vertx.createHttpClient()
+    .setHost(<span style="color: #297f29; font-style: italic;">"foo.com"</span>)
+    .setPort(8080);
+
+<span style="color: #777; font-style: italic;">// </span><span style="color: #777; font-style: italic;">Create a request with a response handler    </span>
+client.get(<span style="color: #297f29; font-style: italic;">"/some-path/"</span>,
+           <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Handler</span>&lt;HttpClientResponse&gt;() {
+               <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">handle</span>(<span style="color: #0b7d07;">HttpClientResponse</span> <span style="color: #4f4047;">resp</span>) {
+                   log.info(<span style="color: #297f29; font-style: italic;">"Got a response: "</span> + resp.statusCode());
+               }
+           })
+    .end();
+</pre>
+</div>
+
+</section>
+<section id="sec-2-2" >
+
+<h3>Ruby Example</h3>
+<div class="org-src-container">
+
+<pre class="src src-ruby">client = <span style="color: #0b7d07;">Vertx</span>::<span style="color: #0b7d07;">HttpClient</span>.new
+client.host = <span style="color: #297f29; font-style: italic;">'foo.com'</span>
+client.port = 8080
+
+<span style="color: #777; font-style: italic;"># </span><span style="color: #777; font-style: italic;">Create a request with a response handler    </span>
+client.get(<span style="color: #297f29; font-style: italic;">'/some-path/'</span>) { |resp|
+  puts <span style="color: #297f29; font-style: italic;">"got response</span><span style="color: #4f4047;"> #{resp.status_code}</span><span style="color: #297f29; font-style: italic;">"</span> 
+}.end
+</pre>
+</div>
+
+</section>
+<section id="sec-2-3" >
+
+<h3>Clojure Example</h3>
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #170ce4;">require</span> '[vertx.http <span style="color: #008b8b;">:as</span> http])
+
+(<span style="color: #5c5c5c;">-&gt;</span> (http/client {<span style="color: #008b8b;">:host</span> <span style="color: #297f29; font-style: italic;">"foo.com"</span>
+                  <span style="color: #008b8b;">:port</span> 8080})
+    (http/request <span style="color: #008b8b;">:GET</span> <span style="color: #297f29; font-style: italic;">"/some-path/"</span>
+      (fn [resp]
+        (<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"got response"</span> (http/status-code resp))))
+    http/end)
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Verticles</h2>
+<ul class="org-ul">
+<li>The unit of deployment
+</li>
+<li>Many in one (any language)
+</li>
+</ul>
+</section>
+<section id="sec-3-1" >
+
+<h3>Verticles</h3>
+<p>
+Start with a verticle:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">vertx run my_app.js -conf cfg.json -instances 3
+</pre>
+</div>
+
+<p>
+Deploy one programmatically: 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby">vertx.deploy_verticle(<span style="color: #297f29; font-style: italic;">'my_app.clj'</span>) <span style="color: #5c5c5c;">do</span> |err, deployment_id|
+  puts <span style="color: #297f29; font-style: italic;">'deploy successful!'</span> <span style="color: #5c5c5c;">unless</span> err
+<span style="color: #5c5c5c;">end</span>
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Event/Reactor Loop</h2>
+<img src="./event-loop.png" alt="event-loop.png" />
+</section>
+<section id="sec-4-1" >
+
+<h3>Event/Reactor Loop(s)</h3>
+<ul class="org-ul">
+<li>Defaults to one/processor
+</li>
+<li>Verticle tied to one loop (so one thread)
+</li>
+<li>Thread safety
+</li>
+</ul>
+
+</section>
+<section id="sec-4-2"  data-state="alert">
+
+<h3>DON'T BLOCK THE EVENT LOOP</h3>
+<ul class="org-ul">
+<li><code>Thread.sleep()</code>
+</li>
+<li><code>Object.wait()</code>
+</li>
+<li><code>CountDownLatch.await()</code> or any other blocking operating from <code>java.util.concurrent</code>
+</li>
+<li><code>while(true) {puts "King of the world!"}</code>
+</li>
+<li>Long-lived computationally intensive operations
+</li>
+<li>Blocking operations that might take some time to complete (e.g. DB query)
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Worker Verticles</h2>
+<ul class="org-ul">
+<li>Can block
+</li>
+<li>Uses thread pool
+</li>
+<li>Verticle still called by one thread <i>at a time</i>
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Modules</h2>
+<ul class="org-ul">
+<li>The unit of distribution
+</li>
+<li>Reusable, shareable artifacts (zip files)
+</li>
+<li>Can contain verticles
+</li>
+<li>Can depend on other modules
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Timers</h2>
+<ul class="org-ul">
+<li>Do something in the future
+</li>
+<li>One-shot &amp; periodic
+</li>
+</ul>
+</section>
+<section id="sec-7-1" >
+
+<h3>Timers</h3>
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #170ce4;">require</span> '[vertx.core <span style="color: #008b8b;">:as</span> v])
+
+(v/timer 5000
+  (<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"I'm 5 seconds in the future!"</span>))
+
+(v/periodic 2000
+  (<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"I SHOUT EVERY 2 SECONDS!!!"</span>))
+
+(<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"I'm printed before either of those yahoos"</span>)
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-8" >
+
+<h2>Eventbus</h2>
+<ul class="org-ul">
+<li>Message passing between components
+</li>
+<li>Scalars &amp; JSON
+</li>
+<li>Inter/intra verticle/cluster nodes
+</li>
+<li>Point-to-point
+<ul class="org-ul">
+<li>Request/respond
+</li>
+</ul>
+</li>
+<li>Broadcast
+</li>
+</ul>
+</section>
+<section id="sec-8-1" >
+
+<h3>Javascript Example</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #5c5c5c;">var</span> <span style="color: #4f4047;">eb</span> = vertx.eventBus;
+
+eb.registerHandler(<span style="color: #297f29; font-style: italic;">'global.notifications'</span>, 
+                   <span style="color: #5c5c5c;">function</span>(<span style="color: #4f4047;">message</span>) {
+                       console.log(<span style="color: #297f29; font-style: italic;">'Message rcvd: '</span> + message);
+                   });
+
+eb.registerHandler(<span style="color: #297f29; font-style: italic;">'some.address'</span>, 
+                   <span style="color: #5c5c5c;">function</span>(<span style="color: #4f4047;">message</span>, <span style="color: #4f4047;">replyFn</span>) {
+                       console.log(<span style="color: #297f29; font-style: italic;">'Message rcvd: '</span> + message);
+                       replyFn(<span style="color: #297f29; font-style: italic;">'Roger that'</span>);
+                   });
+
+<span style="color: #777; font-style: italic;">// </span><span style="color: #777; font-style: italic;">publish to all handlers</span>
+eb.publish(<span style="color: #297f29; font-style: italic;">"global.notifications"</span>, {some: <span style="color: #297f29; font-style: italic;">"value"</span>});
+
+<span style="color: #777; font-style: italic;">// </span><span style="color: #777; font-style: italic;">send to one handler and handle the reply</span>
+eb.send(<span style="color: #297f29; font-style: italic;">"some.address"</span>, <span style="color: #297f29; font-style: italic;">"ahoyhoy"</span>,
+       <span style="color: #5c5c5c;">function</span>(<span style="color: #4f4047;">message</span>) {
+           console.log(<span style="color: #297f29; font-style: italic;">"Reply: "</span> + message);
+       });
+</pre>
+</div>
+
+</section>
+<section id="sec-8-2" >
+
+<h3>Clojure Example</h3>
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #170ce4;">require</span> '[vertx.eventbus <span style="color: #008b8b;">:as</span> eb])
+
+(eb/register-handler <span style="color: #297f29; font-style: italic;">"global.notifications"</span>
+  (fn [m]
+    (<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"Message rcvd:"</span> m)))
+
+<span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">A replying handler</span>
+(eb/register-handler <span style="color: #297f29; font-style: italic;">"some.address"</span>
+  (fn [m]
+    (<span style="color: #170ce4;">println</span> <span style="color: #297f29; font-style: italic;">"Message rcvd:"</span> m)
+    (eb/reply <span style="color: #297f29; font-style: italic;">"Roger that"</span>)))
+
+<span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">publish to all handlers</span>
+(eb/publish <span style="color: #297f29; font-style: italic;">"global.notifications"</span> {<span style="color: #008b8b;">:some</span> <span style="color: #297f29; font-style: italic;">"value"</span>})
+
+<span style="color: #777; font-style: italic;">;; </span><span style="color: #777; font-style: italic;">send to one handler and handle the reply</span>
+(eb/send <span style="color: #297f29; font-style: italic;">"some.adress"</span> <span style="color: #297f29; font-style: italic;">"ahoyhoy"</span>
+         (<span style="color: #170ce4;">partial</span> println <span style="color: #297f29; font-style: italic;">"Reply:"</span>))
+</pre>
+</div>
+
+</section>
+<section id="sec-8-3" >
+
+<h3>Clustering</h3>
+<ul class="org-ul">
+<li>Distributed event bus
+</li>
+<li>Efficient distribution
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">vertx run my_app.py -cluster &amp;
+vertx run my_app.py -cluster
+</pre>
+</div>
+
+</section>
+<section id="sec-8-4" >
+
+<h3>To the browser</h3>
+<ul class="org-ul">
+<li>Browser is a peer in the eventbus
+</li>
+<li>SockJS
+</li>
+<li>Live demo at the end
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>SharedData</h2>
+<ul class="org-ul">
+<li>Share maps or sets between verticles
+</li>
+<li>Only store immutable things
+</li>
+</ul>
+</section>
+<section id="sec-9-1" >
+
+<h3>SharedData</h3>
+<div class="org-src-container">
+
+<pre class="src src-ruby">hash = <span style="color: #0b7d07;">Vertx</span>::<span style="color: #0b7d07;">SharedData</span>.get_hash(<span style="color: #297f29; font-style: italic;">'demo.myhash'</span>)
+hash[<span style="color: #297f29; font-style: italic;">'some-key'</span>] = <span style="color: #297f29; font-style: italic;">'some-value'</span>
+</pre>
+</div>
+<p>
+And then, in a different verticle:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">hash = <span style="color: #0b7d07;">Vertx</span>::<span style="color: #0b7d07;">SharedData</span>.get_hash(<span style="color: #297f29; font-style: italic;">'demo.myhash'</span>)
+puts <span style="color: #297f29; font-style: italic;">"value of some-key is</span><span style="color: #4f4047;"> #{hash['some-key']}</span><span style="color: #297f29; font-style: italic;">"</span>
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>"Callback Hell"</h2>
+<p>
+<img src="./hell.jpg" alt="hell.jpg" />
+<a href="http://www.flickr.com/photos/googly/8138508">http://www.flickr.com/photos/googly/8138508</a>
+</p>
+</section>
+<section id="sec-10-1" >
+
+<h3>"Callback Hell"</h3>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0b7d07;">HttpClient</span> <span style="color: #4f4047;">client</span> = vertx.createHttpClient()
+    .setHost(<span style="color: #297f29; font-style: italic;">"foo.com"</span>)
+    .setPort(8080);
+
+client.get(<span style="color: #297f29; font-style: italic;">"/some-path/"</span>,
+  <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Handler</span>&lt;HttpClientResponse&gt;() {
+    <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">handle</span>(<span style="color: #0b7d07;">HttpClientResponse</span> <span style="color: #4f4047;">resp</span>) {
+      resp.bodyHandler(<span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Handler</span>&lt;Buffer&gt;() {
+        <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">handle</span>(<span style="color: #0b7d07;">Buffer</span> <span style="color: #4f4047;">buf</span>) {
+          vertx.eventBus().send(<span style="color: #297f29; font-style: italic;">"some.worker"</span>, buf,
+            <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Handler</span>&lt;Message&lt;String&gt;&gt;() {
+              <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">handle</span>(Message&lt;String&gt; m) {
+                <span style="color: #5c5c5c;">if</span> (<span style="color: #297f29; font-style: italic;">"ok"</span>.equals(m.body())) {
+                  client.post(<span style="color: #297f29; font-style: italic;">"/a-ok/"</span>, 
+                    <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Handler</span>&lt;HttpClientResponse&gt;() {
+                      <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">handle</span>(<span style="color: #0b7d07;">HttpClientResponse</span> <span style="color: #4f4047;">resp</span>) {                 
+                        <span style="color: #777; font-style: italic;">//</span><span style="color: #777; font-style: italic;">do more!</span>
+                      }
+                    }).end();
+                }
+              }
+           });
+        }
+      });
+    }
+  }).end();
+</pre>
+</div>
+
+</section>
+<section id="sec-10-2" >
+
+<h3>"Callback Hell"</h3>
+<ul class="org-ul">
+<li>Don't use Java :) 
+</li>
+<li>Use RxJava
+</li>
+</ul>
+
+</section>
+<section id="sec-10-3" >
+
+<h3>"Callback Hell"</h3>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0b7d07;">HttpClient</span> <span style="color: #4f4047;">client</span> = vertx.createHttpClient()
+    .setHost(<span style="color: #297f29; font-style: italic;">"foo.com"</span>)
+    .setPort(8080);
+
+<span style="color: #0b7d07;">RxHttpClient</span> <span style="color: #4f4047;">rxclient</span> = <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">RxHttpClient</span>(client);
+<span style="color: #0b7d07;">RxEventBus</span> <span style="color: #4f4047;">rxbus</span> = <span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">RxEventBus</span>(vertx.eventBus());
+
+rxclient.get(<span style="color: #297f29; font-style: italic;">"/some-path/"</span>)
+  .mapMany(downloadBody())
+  .subscribe(<span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Action1</span>&lt;Buffer&gt;() {
+    <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">call</span> (<span style="color: #0b7d07;">Buffer</span> <span style="color: #4f4047;">buf</span>) {
+      rxbus.send(<span style="color: #297f29; font-style: italic;">"some.worker"</span>, buf)
+        .mapMany(<span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Func1</span>&lt;RxMessage&lt;String&gt;&gt;, Observable&lt;RxMessage&lt;String&gt;&gt;&gt;() {
+          <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">Observable</span>&lt;RxMessage&lt;String&gt;&gt; call(RxMessage&lt;String&gt; m) {
+            <span style="color: #5c5c5c;">if</span> (<span style="color: #297f29; font-style: italic;">"ok"</span>.equals(m.body())) {
+              rxclient.post(<span style="color: #297f29; font-style: italic;">"/a-ok/"</span>)
+                .subscribe(<span style="color: #5c5c5c;">new</span> <span style="color: #0b7d07;">Action1</span>&lt;HttpClientResponse&gt;() {
+                   <span style="color: #5c5c5c;">public</span> <span style="color: #0b7d07;">void</span> <span style="color: #4f4047;">call</span> (<span style="color: #0b7d07;">HttpClientResponse</span> <span style="color: #4f4047;">resp</span>) {
+                     <span style="color: #777; font-style: italic;">//</span><span style="color: #777; font-style: italic;">do more!</span>
+                   }
+                 });
+            }
+          }
+        });
+    }
+  });
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-11" >
+
+<h2>Drawbacks</h2>
+<ul class="org-ul">
+<li>D.B.T.E.L.
+</li>
+<li>Callback Hades
+</li>
+<li>Standard packaging systems
+</li>
+<li>Lack of frameworks
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-12" >
+
+<h2>Live Demo</h2>
+</section>
+</section>
+<section>
+<section id="sec-13" >
+
+<h2>Resources</h2>
+<ul class="org-ul">
+<li><a href="http://vertx.io/">http://vertx.io/</a>
+</li>
+<li>#vertx on freenode.net
+</li>
+<li><a href="https://github.com/vert-x/">https://github.com/vert-x/</a>
+</li>
+<li><a href="https://groups.google.com/forum/#!forum/vertx">https://groups.google.com/forum/#!forum/vertx</a> 
+</li>
+<li><a href="https://github.com/Netflix/RxJava">https://github.com/Netflix/RxJava</a>
+</li>
+<li><a href="https://github.com/tobias/vertx-acl-presentation">https://github.com/tobias/vertx-acl-presentation</a>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: false,
+        			center: true,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        				{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        				{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        				{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        			]
+        		});
+</script>
+</body>
+</html>

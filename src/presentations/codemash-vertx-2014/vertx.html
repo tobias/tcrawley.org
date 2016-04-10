@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Vert.x)</title>
+<meta name="author" content="(Toby Crawley)"/>
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/custom.css" id="theme"/>
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="Developing decoupled polyglot applications with Vert.x.">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<div id="title-slide"><h2>Building decoupled polyglot applications with</h2><img src="vertx-logo.png"><h3>Toby Crawley</h3><h4>CodeMash 2014</h4></div></section>
+
+<section>
+<section id="sec-1"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+</p>
+
+<ul class="org-ul">
+<li><a href="http://vertx.io">http://vertx.io</a>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-2"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a <b>lightweight</b>, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+</p>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Lightweight</h2>
+<p class="fragment roll-in">
+Small distribution: <b>5 MB</b>
+</p>
+<p class="fragment roll-in">
+Efficient with resources
+</p>
+<p class="fragment roll-in">
+Small, generally consistent API
+</p>
+</section>
+</section>
+<section>
+<section id="sec-4"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a lightweight, <b>high performance</b> application platform for the JVM that's designed for modern mobile, web, and enterprise applications.”
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>High Performance</h2>
+<p class="fragment roll-in">
+<b>650,000 requests/second</b> - <a href="http://bit.ly/vertxbench">http://bit.ly/vertxbench</a>
+</p>
+<p class="fragment roll-in">
+Based on Netty - <a href="http://netty.io">http://netty.io</a>
+</p>
+<p class="fragment roll-in">
+Primarily asynchronous
+</p>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Why Async?</h2>
+</section>
+</section>
+<section>
+<section id="sec-7"  data-state="cited dark-bg" class="suppress">
+
+<h2>Why Async?</h2>
+<img src="./standing2.jpg" alt="standing2.jpg" />
+</section>
+</section>
+<section>
+<section id="sec-8"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a lightweight, high performance <b>application platform</b> for the JVM that's designed for modern mobile, web, and enterprise applications.”
+</p>
+</section>
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>Application Platform</h2>
+<p class="fragment roll-in">
+Run multiple applications (<i>Verticles</i>) in one instance
+</p>
+<p class="fragment roll-in">
+Simple inter-component communication (<i>EventBus</i>)
+</p>
+<p class="fragment roll-in">
+Clustering
+</p>
+<p class="fragment roll-in">
+High Availability
+</p>
+<p class="fragment roll-in">
+Polyglot
+</p>
+</section>
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Polyglot</h2>
+<ul class="org-ul">
+<li>Java
+</li>
+<li>JRuby
+</li>
+<li>Jython
+</li>
+<li>JavaScript/CoffeeScript (Rhino, DynJS*, Nashorn*)
+</li>
+<li>Groovy
+</li>
+<li>Scala*
+</li>
+<li>PHP*
+</li>
+<li>Ceylon*
+</li>
+<li>Clojure*
+</li>
+</ul>
+
+<p>
+(* in progress)
+</p>
+</section>
+</section>
+<section>
+<section id="sec-11"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a lightweight, high performance application platform for <b>the JVM</b> that's designed for modern mobile, web, and enterprise applications.”
+</p>
+</section>
+</section>
+<section>
+<section id="sec-12" >
+
+<h2>The JVM</h2>
+<p class="fragment roll-in">
+A mature VM 
+</p>
+<p class="fragment roll-in">
+Not just Java
+</p>
+<p class="fragment roll-in">
+Massive amount of libraries
+</p>
+</section>
+</section>
+<section>
+<section id="sec-13"  data-state="quote">
+
+<h2>What is Vert.x?</h2>
+<p>
+“Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern <b>mobile, web, and enterprise applications</b>.”
+</p>
+</section>
+</section>
+<section>
+<section id="sec-14"  data-state="no-shadow">
+
+<h2>Enterprise</h2>
+<img src="./enterprise.png" alt="enterprise.png" />
+</section>
+
+</section>
+<section>
+<section id="sec-15"  data-state="no-shadow">
+
+<h2>Mobile, Enterprise</h2>
+<img src="./mobile-enterprise.png" alt="mobile-enterprise.png" />
+</section>
+
+</section>
+<section>
+<section id="sec-16"  data-state="no-shadow">
+
+<h2>Mobile, Web, Enterprise</h2>
+<img src="./enterprise-all.png" alt="enterprise-all.png" />
+</section>
+</section>
+<section>
+<section id="sec-17" >
+
+<h2>Mobile, Web, Enterprise</h2>
+<p class="fragment roll-in">
+Many connections
+</p>
+<p class="fragment roll-in">
+Constrained resources (To The Cloud!)
+</p>
+<p class="fragment roll-in">
+Simple without being simplistic.
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-18" >
+
+<h2>Reactor Loop</h2>
+<img src="./reactor-loop.png" alt="reactor-loop.png" />
+</section>
+
+</section>
+<section>
+<section id="sec-19" >
+
+<h2>Reactor Loop(s)</h2>
+<p class="fragment roll-in">
+Defaults to one/core
+</p>
+<p class="fragment roll-in">
+Verticle tied to one loop
+</p>
+<p class="fragment roll-in">
+Thread confinement
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-20" >
+
+<h2>Distributed Event Bus</h2>
+<ul class="org-ul">
+<li class="fragment roll-in">Simple (String, int, byte[], etc) &amp; structured (JSON) messages
+</li>
+<li class="fragment roll-in">String-based addressing
+</li>
+<li class="fragment roll-in">Publish/Subscribe 
+</li>
+<li class="fragment roll-in">Point-to-point
+</li>
+<li class="fragment roll-in">Request/Response
+</li>
+<li class="fragment roll-in">Clusterable (Hazelcast, browser)
+</li>
+<li class="fragment roll-in">Transient
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-21"  data-state="cited dark-bg" class="suppress">
+
+<h2>Sample App</h2>
+<img src="./fireside-chat.jpg" alt="fireside-chat.jpg" />
+</section>
+</section>
+<section>
+<section id="sec-22"  class="suppress">
+
+<h2>Sample Application</h2>
+<img src="./fireside-dia-simple.png" alt="fireside-dia-simple.png" />
+</section>
+
+</section>
+<section>
+<section id="sec-23" >
+
+<h2>(URL of sample app was here)</h2>
+</section>
+</section>
+<section>
+<section id="sec-24"  class="suppress">
+
+<h2>Sample Application</h2>
+<img src="./fireside-dia-simple.png" alt="fireside-dia-simple.png" />
+</section>
+
+</section>
+<section>
+<section id="sec-25"  class="suppress">
+
+<h2>Sample Application</h2>
+<img src="./fireside-dia.png" alt="fireside-dia.png" />
+</section>
+</section>
+<section>
+<section id="sec-26" >
+
+<h2>Features</h2>
+<ul class="org-ul">
+<li class="fragment roll-in"><i>HTTP(S)</i>, TCP, UDP, WebSocket, SockJS servers
+</li>
+<li class="fragment roll-in">HTTP(S), TCP, UDP, WebSocket, DNS clients
+</li>
+<li class="fragment roll-in"><i>Distributed Event Bus</i>
+</li>
+<li class="fragment roll-in"><i>Timers</i>
+</li>
+<li class="fragment roll-in"><i>Async FS</i>
+</li>
+<li class="fragment roll-in">SharedData
+</li>
+<li class="fragment roll-in">Embeddable
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-27" >
+
+<h2>Gains</h2>
+<ul class="org-ul">
+<li>Efficient
+</li>
+<li>Distributed Event Bus
+</li>
+<li>Thread Safety
+</li>
+<li>Polyglot
+</li>
+<li>Clusterable
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-28" >
+
+<h2>Losses</h2>
+<p class="fragment roll-in">
+Language ecosystems
+</p>
+<p class="fragment roll-in">
+Async complexity
+</p>
+<p class="fragment roll-in">
+Don't block the reactor loop
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-29"  data-state="cited dark-bg" class="suppress">
+
+<h2>Don't block&#x2026;</h2>
+<img src="./reactor2.jpg" alt="reactor2.jpg" />
+</section>
+</section>
+<section>
+<section id="sec-30"  data-state="alert">
+
+<h2>Don't block the reactor loop</h2>
+<ul class="org-ul">
+<li class="fragment roll-in"><code>Thread.sleep()</code>
+</li>
+<li class="fragment roll-in"><code>CountDownLatch.await()</code> or any other blocking operating from <code>java.util.concurrent</code>
+</li>
+<li class="fragment roll-in"><code>while(true) {puts "King of the world!"}</code>
+</li>
+<li class="fragment roll-in">Long-lived computationally intensive operations
+</li>
+<li class="fragment roll-in">Blocking operations that might take some time to complete (e.g. DB query)
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-31" >
+
+<h2>Worker Verticles</h2>
+<p class="fragment roll-in">
+Runs on a thread pool, so <i>can</i> block.
+</p>
+<p class="fragment roll-in">
+Still thread-confined by default.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-32" >
+
+<h2>Resources</h2>
+<p class="fragment roll-in">
+<a href="http://vertx.io">http://vertx.io</a> / <a href="https://github.com/vert-x/">https://github.com/vert-x/</a>
+</p>
+<p class="fragment roll-in">
+NoDyn - <a href="http://nodyn.io">http://nodyn.io</a>
+</p>
+<p class="fragment roll-in">
+Yoke - <a href="http://pmlopes.github.io/yoke/">http://pmlopes.github.io/yoke/</a>
+</p>
+<p class="fragment roll-in">
+Vert.x Module Registry - <a href="http://modulereg.vertx.io/">http://modulereg.vertx.io/</a>
+</p>
+<p class="fragment roll-in">
+<a href="https://github.com/tobias/vertx-codemash-2014/">https://github.com/tobias/vertx-codemash-2014/</a>
+</p>
+</section>
+</section>
+<section>
+<section id="sec-33" >
+
+<h2>Takeaways</h2>
+<ul class="org-ul">
+<li>Build application components in any (supported) language
+</li>
+<li>Decouple components with the EventBus
+</li>
+<li>Fast &amp; efficient
+</li>
+<li>Async, but not always
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-34"  data-state="cited dark-bg" class="suppress">
+
+<h2>Questions?</h2>
+
+<img src="./hands.jpg" alt="hands.jpg" />
+</section>
+</section>
+<section>
+<section id="sec-35" >
+
+<h2>Credits</h2>
+<ul class="org-ul">
+<li>"Utility Work at 12th and Vine" - <a href="http://www.flickr.com/photos/taestell/10366923794/">http://www.flickr.com/photos/taestell/10366923794/</a>
+</li>
+<li>Star Trek screencaps - <a href="http://tos.trekcore.com/">http://tos.trekcore.com/</a>
+</li>
+<li>"21st Amendment Fireside Chat" - <a href="http://www.flickr.com/photos/adambarhan/10585487705/">http://www.flickr.com/photos/adambarhan/10585487705/</a>
+</li>
+<li>Bacon quotes - <a href="http://thinkexist.com/quotes/with/keyword/bacon/">http://thinkexist.com/quotes/with/keyword/bacon/</a>
+</li>
+<li>"Three Mile Island" - <a href="http://www.flickr.com/photos/subindie/955633308">http://www.flickr.com/photos/subindie/955633308</a>
+</li>
+<li>"please raise hand for assistance" - <a href="http://www.flickr.com/photos/coldtaxi/426162862/">http://www.flickr.com/photos/coldtaxi/426162862/</a>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: false,
+        			progress: false,
+        			history: true,
+        			center: true,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'fast',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>

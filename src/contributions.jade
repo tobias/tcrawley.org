@@ -1,0 +1,32 @@
+---
+title: OSS Contributions
+layout: layout.jade
+---
+
+.row
+  .col-md-10
+    h1 OSS Contributions
+    p Here are a few of the OSS projects to which I have provided significant contributions:
+    .well
+
+      ul
+        each project in site.featuredProjects
+          li <strong><a href="#{project.url}">#{project.name}</a></strong> - #{project.description}
+.row
+  .col-md-5
+    p 
+      | I also created: 
+    .well
+      ul
+        each project in site.createdProjects
+          li
+            a(href="#{project.url}") #{project.name}
+            
+  .col-md-5
+    p 
+      | And contributed to:
+    .well
+      ul
+        each project in site.contributedProjects
+          li
+            a(href="#{project.url}") #{project.name}

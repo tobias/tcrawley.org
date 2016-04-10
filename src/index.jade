@@ -1,0 +1,48 @@
+---
+title: Home
+layout: layout.jade
+---
+
+.intro
+  h1 Morning!
+  :markdown
+    I'm Tobias Crawley, but you can call me Toby. I'm a
+    software developer and all around nice guy. I currently work at
+    [JBoss/Red Hat](http://jboss.org) in the
+    [project:odd](http://projectodd.org) group. You can possibly learn 
+    more about my software activities here, or using the links in the header 
+    above.
+
+.row
+  .col-md-10
+    h2
+      span.glyphicon.glyphicon-hand-right
+      span Open Source Work
+    p Here are a few of the OSS projects to which I have provided significant contributions:
+    .well
+
+      ul
+        each project in site.featuredProjects
+          li <strong><a href="#{project.url}">#{project.name}</a></strong> - #{project.description}
+    p 
+      :markdown
+        See the [contributions](/contributions.html) page for a more comprehensive list.
+                
+.row
+  .col-md-10
+    h2
+      span.glyphicon.glyphicon-hand-right
+      span Presentations
+    p
+     | I've given a few presentations about my work in the last few years. Here are a 
+     |  few of them, one with video:
+
+    .well
+      ul
+        each preso in site.presentations
+          li
+            if preso.video
+              span.glyphicon.glyphicon-film &nbsp;
+            else
+              span.glyphicon.glyphicon-blackboard &nbsp;
+            span <strong><a href="#{preso.url}">#{preso.name}</a></strong> - #{preso.location}          
