@@ -88,7 +88,7 @@
        "location": "Clojure/Conj 2013",
        "video": true},
       {"name": "Procrastination as a pattern for polyglot interchange", "url": "/presentations/procrastination.pdf", "location": "TriClojure 2013"},
-      {"name": "Simple scalability with TorqueBox", "url": "/presentations/torquebox-rubyconfbr.pdf", "location": "RubyConf Brasil 2012"},
+      {"name": "Simple scalability with TorqueBox", "url": "/presentations/torquebox-rubyconfbr-2012.pdf", "location": "RubyConf Brasil 2012"},
       {"name": "Simplify your infrastructure with TorqueBox", "url": "/presentations/torquebox-jrubyconfeu-2012.pdf", "location": "JRubyConfEU 2012"},
       {"name": "TorqueBox", "url": "/presentations/torquebox-raleighrb-2011.pdf", "location": "Raleigh.rb 2011"},
       {"name": "TorqueBox", "url": "/presentations/torquebox-charlotterb-2011.pdf", "location": "Charlotte.rb 2011"},

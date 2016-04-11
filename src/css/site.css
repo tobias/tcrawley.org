@@ -8,6 +8,7 @@ body {
 
 #content a {
     color: #193441;
+    text-decoration: underline;
 }
 
 #content a:hover {
@@ -59,6 +60,10 @@ li {
 
 .well {
     background-color: #fcfff5;
+}
+
+#content .well a {
+    text-decoration: none;
 }
 
 .page-header {
