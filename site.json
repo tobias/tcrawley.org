@@ -94,6 +94,15 @@
       {"name": "TorqueBox", "url": "/presentations/torquebox-charlotterb-2011.pdf", "location": "Charlotte.rb 2011"},
 
       {"name": "The Polyglot Future of JBoss AS", "url": "/presentations/devignition_2011.pdf", "location": "DevIgnition 2011"},
-      {"name": "The Beauty of Ruby with Power of Java", "url": "/presentations/torquebox-oscon-2011.pdf", "location": "OSCon 2011"}]}}
+      {"name": "The Beauty of Ruby with Power of Java", "url":
+       "/presentations/torquebox-oscon-2011.pdf",
+       "location": "OSCon 2011"}],
+    "podcasts": [
+      {"name": "Mostly λazy",
+       "url": "https://mostlylazy.com/2014/01/13/episode-11-with-jim-crossley-and-toby-crawley-the-immutant-two-step/",
+       "episode": "11"},
+      {"name": "The Cognicast",
+       "url": "http://blog.cognitect.com/cognicast/066-crossley-crawley",
+       "episode": "66"}]}}
 
 

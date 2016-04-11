@@ -45,4 +45,17 @@ layout: layout.jade
               span.glyphicon.glyphicon-film &nbsp;
             else
               span.glyphicon.glyphicon-blackboard &nbsp;
-            span <strong><a href="#{preso.url}">#{preso.name}</a></strong> - #{preso.location}          
+            span <strong><a href="#{preso.url}">#{preso.name}</a></strong> - #{preso.location}
+            
+.row
+  .col-md-10
+    h2
+      span.glyphicon.glyphicon-hand-right
+      span Podcasts
+    p
+     | I've been interviewed on a couple of podcasts, namely:
+
+    .well
+      ul
+        each podcast in site.podcasts
+          li <strong><a href="#{podcast.url}">#{podcast.name} - Episode #{podcast.episode}</a></strong>
