@@ -66,6 +66,10 @@ li {
     text-decoration: none;
 }
 
+.well ul {
+    margin-bottom: 0px;
+}
+
 .page-header {
   margin: 20px 0;
 }
