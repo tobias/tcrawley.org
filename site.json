@@ -36,7 +36,7 @@
       {"name": "immutant-transit", "url": "https://github.com/immutant/immutant-transit"},
       {"name": "lein-immutant", "url":
        "https://github.com/immutant/lein-immutant"},
-      {"name": "lein-webdav", "url": "https://github.com/immutant/lein-webdav"},
+      {"name": "lein-webdav", "url": "https://github.com/tobias/lein-webdav"},
       {"name": "proddbot", "url":
        "https://github.com/tobias/proddbot"},
       {"name": "progress", "url":
@@ -46,7 +46,7 @@
       {"name": "supersport", "url":
        "https://github.com/tobias/supersport"},
       {"name": "twitter4j4r", "url": "https://github.com/tobias/twitter4j4r"},
-      {"name": "zendesk_remote_auth", "url": "https://github.com/viewbook/zendesk_remote_auth/commits?author=tobias"}],
+      {"name": "zendesk_remote_auth", "url": "https://github.com/viewbook/zendesk_remote_auth"}],
     "contributedProjects": [
       {"name": "autodoc", "url": "https://github.com/tomfaulhaber/autodoc/commits?author=tobias"},
       {"name": "awesome_print", "url": "https://github.com/michaeldv/awesome_print/commits?author=tobias"},

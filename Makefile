@@ -4,8 +4,7 @@ build: node_modules
 serve: node_modules
 	node build serve
 
-deploy: node_modules
-	node build
+deploy: build
 	rsync -avz build/* tcrawley.org:tcrawley.org    	
 
 node_modules: package.json
