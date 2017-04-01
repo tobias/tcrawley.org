@@ -1,0 +1,106 @@
+#+TITLE: Java 9 & Clojure Research Notes
+#+AUTHOR: Toby Crawley
+#+EMAIL: toby@tcrawley.org
+#+OPTIONS:   num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="research-style.css" />
+
+This provides additional information to go along with my Java 9 talk
+from Clojure/West 2017. A recording of the talk is [[https://www.youtube.com/watch?v%3D4fevIDAxQAM][available]], as are
+the [[http://tcrawley.org/presentations/ClojureWestJava9/][slides]].
+
+* General resources
+
+  - A good intro to changes in Java 9: 
+    - https://www.sitepoint.com/inside-java-9-part-i/ 
+    - https://www.sitepoint.com/inside-java-9-part-ii/
+  - A clearinghouse for Clojure + Java 9 issues: https://github.com/tobias/clojure-java-9/issues
+  - Java 9 release clock: http://www.java9countdown.xyz
+  - Early-access builds: https://jdk9.java.net/download/
+
+* Multi-release JARs
+  
+  - The JEP: http://openjdk.java.net/jeps/238
+  - Building them with Maven (not pretty): http://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/
+
+* AOT compilation
+
+  The following is based on instructions from http://openjdk.java.net/jeps/295 (using Java =9-ea+160=).
+
+  To compile the =java.base= module:
+
+#+BEGIN_SRC
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseG1GC -J-Xmx4g --compile-for-tiered --info \
+  --compile-commands java.base-list.txt --output libjava.base.so --module java.base
+#+END_SRC
+
+  Where =java.base-list.txt= contains:
+
+#+BEGIN_SRC
+# jaotc: java.lang.StackOverflowError
+exclude sun.util.resources.LocaleNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources.TimeZoneNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources.cldr.LocaleNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources..*.LocaleNames_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.LocaleNames_.*_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.TimeZoneNames_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.TimeZoneNames_.*_.*.getContents\(\)\[\[Ljava/lang/Object;
+# java.lang.Error: Trampoline must not be defined by the bootstrap classloader
+exclude sun.reflect.misc.Trampoline.<clinit>()V
+exclude sun.reflect.misc.Trampoline.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+# JVM asserts
+exclude com.sun.crypto.provider.AESWrapCipher.engineUnwrap([BLjava/lang/String;I)Ljava/security/Key;
+exclude sun.security.ssl.*
+exclude sun.net.RegisteredDomain.<clinit>()V
+#+END_SRC
+
+  Compiling a simple Clojure uberjar (you may need all dependencies on
+  the classpath, not just Clojure):
+
+#+BEGIN_SRC
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseG1GC -J-Xmx4g -J-cp -J/path/to/clojure-1.8.0.jar \
+  --compile-for-tiered --info --output libtest-app.so --jar path/to/uberjar.jar --ignore-errors
+#+END_SRC
+
+  For "fun", I worked on AOT'ing the =lein= uberjar. That required:
+
+  - AOT compiling the lein uberjar:
+#+BEGIN_SRC
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseParallelGC -J-Xmx4g -J-cp \
+  -J/home/tcrawley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/tcrawley/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/home/tcrawley/.m2/repository/org/osgi/org.osgi.compendium/4.2.0/org.osgi.compendium-4.2.0.jar:/home/tcrawley/jars/plexus-cli-1.6.jar:/home/tcrawley/jars/archetype-common-3.0.0.jar:/home/tcrawley/jars/javax.servlet-api-3.1.0.jar:/home/tcrawley/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar \
+  --compile-for-tiered --info --output ~/.lein/liblein.so  \ 
+  --jar ~/.lein/self-installs/leiningen-2.7.1-standalone.jar --ignore-errors
+#+END_SRC
+  - Editing the =lein= script to comment out bootclasspath usage (since that doesn't work under Java 9):
+#+BEGIN_SRC
+# BOOTCLASSPATH="-Xbootclasspath/a:$LEIN_JAR"
+#+END_SRC
+  - Copying =libjava.base.so= to =~/.lein=
+  - Setting the proper JVM args:
+#+BEGIN_SRC
+export LEIN_JVM_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseParallelGC -XX:AOTLibrary=~/.lein/libjava.base.so:~/.lein/liblein.so"
+#+END_SRC
+  - And, finally, running =lein=:
+#+BEGIN_SRC
+lein version
+#+END_SRC
+
+  However, this resulted decreased startup performance:
+  
+  - =lein= + Java 8 w/bootclasspath hack: =1.495s=
+  - =lein= + Java 9 no bootclasspath hack: =2.334s=
+  - =lein= + Java 9 + AOT: =3.051s=
+
+* G1 garbage collector
+
+  - A good description of what it does: http://www.oracle.com/technetwork/tutorials/tutorials-1876574.html#t2
+  - Performance concerns: https://www.optaplanner.org/blog/2015/07/31/WhatIsTheFastestGarbageCollectorInJava8.html
+
+* Modules
+
+  - State of the Module System (slightly dated): http://openjdk.java.net/projects/jigsaw/spec/sotms/
+  - Related Clojure issues: 
+    - Reflection on package-private classes: http://dev.clojure.org/jira/browse/CLJ-2066
+    - Loading from the bootclasspath: http://dev.clojure.org/jira/browse/CLJ-2077
+
+  - The =--permit-illegal-access= flag: http://mail.openjdk.java.net/pipermail/jigsaw-dev/2017-March/011763.html  
+

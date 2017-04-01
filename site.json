@@ -78,6 +78,8 @@
       {"name": "wunderboss", "url":
        "https://github.com/projectodd/wunderboss/commits?author=tobias"}],
     "presentations": [
+      {"name": "Clojure, Java 9, and You!", "url":
+       "https://www.youtube.com/watch?v=4fevIDAxQAM", "location": "Clojure/West 2017", "video": true},
       {"name": "Introduction to Immutant 2", "url": "https://github.com/tobias/triclojure-immutant-preso", "location": "TriClojure 2014"},
       {"name": "Introduction to Immutant 2", "url": "https://github.com/tobias/den-of-clojure-preso", "location": "Den Of Clojure 2014"},
       {"name": "Introduction to TorqueBox 4", "url": "https://github.com/tobias/boulder-rb-preso", "location": "Boulder Ruby Group 2014"},

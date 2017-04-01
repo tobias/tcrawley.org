@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Java 9 &amp; Clojure Research Notes</title>
+<!-- 2017-03-31 Fri 15:49 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Toby Crawley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="research-style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Java 9 &amp; Clojure Research Notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">General resources</a></li>
+<li><a href="#sec-2">Multi-release JARs</a></li>
+<li><a href="#sec-3">AOT compilation</a></li>
+<li><a href="#sec-4">G1 garbage collector</a></li>
+<li><a href="#sec-5">Modules</a></li>
+</ul>
+</div>
+</div>
+<p>
+This provides additional information to go along with my Java 9 talk
+from Clojure/West 2017. A recording of the talk is <a href="https://www.youtube.com/watch?v=4fevIDAxQAM">available</a>, as are
+the <a href="http://tcrawley.org/presentations/ClojureWestJava9/">slides</a>.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">General resources</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>A good intro to changes in Java 9: 
+<ul class="org-ul">
+<li><a href="https://www.sitepoint.com/inside-java-9-part-i/">https://www.sitepoint.com/inside-java-9-part-i/</a> 
+</li>
+<li><a href="https://www.sitepoint.com/inside-java-9-part-ii/">https://www.sitepoint.com/inside-java-9-part-ii/</a>
+</li>
+</ul>
+</li>
+<li>A clearinghouse for Clojure + Java 9 issues: <a href="https://github.com/tobias/clojure-java-9/issues">https://github.com/tobias/clojure-java-9/issues</a>
+</li>
+<li>Java 9 release clock: <a href="http://www.java9countdown.xyz">http://www.java9countdown.xyz</a>
+</li>
+<li>Early-access builds: <a href="https://jdk9.java.net/download/">https://jdk9.java.net/download/</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Multi-release JARs</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>The JEP: <a href="http://openjdk.java.net/jeps/238">http://openjdk.java.net/jeps/238</a>
+</li>
+<li>Building them with Maven (not pretty): <a href="http://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/">http://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">AOT compilation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The following is based on instructions from <a href="http://openjdk.java.net/jeps/295">http://openjdk.java.net/jeps/295</a> (using Java <code>9-ea+160</code>).
+</p>
+
+<p>
+To compile the <code>java.base</code> module:
+</p>
+
+<pre class="example">
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseG1GC -J-Xmx4g --compile-for-tiered --info \
+  --compile-commands java.base-list.txt --output libjava.base.so --module java.base
+</pre>
+
+<p>
+Where <code>java.base-list.txt</code> contains:
+</p>
+
+<pre class="example">
+# jaotc: java.lang.StackOverflowError
+exclude sun.util.resources.LocaleNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources.TimeZoneNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources.cldr.LocaleNames.getContents()[[Ljava/lang/Object;
+exclude sun.util.resources..*.LocaleNames_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.LocaleNames_.*_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.TimeZoneNames_.*.getContents\(\)\[\[Ljava/lang/Object;
+exclude sun.util.resources..*.TimeZoneNames_.*_.*.getContents\(\)\[\[Ljava/lang/Object;
+# java.lang.Error: Trampoline must not be defined by the bootstrap classloader
+exclude sun.reflect.misc.Trampoline.&lt;clinit&gt;()V
+exclude sun.reflect.misc.Trampoline.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+# JVM asserts
+exclude com.sun.crypto.provider.AESWrapCipher.engineUnwrap([BLjava/lang/String;I)Ljava/security/Key;
+exclude sun.security.ssl.*
+exclude sun.net.RegisteredDomain.&lt;clinit&gt;()V
+</pre>
+
+<p>
+Compiling a simple Clojure uberjar (you may need all dependencies on
+the classpath, not just Clojure):
+</p>
+
+<pre class="example">
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseG1GC -J-Xmx4g -J-cp -J/path/to/clojure-1.8.0.jar \
+  --compile-for-tiered --info --output libtest-app.so --jar path/to/uberjar.jar --ignore-errors
+</pre>
+
+<p>
+For "fun", I worked on AOT'ing the <code>lein</code> uberjar. That required:
+</p>
+
+<ul class="org-ul">
+<li>AOT compiling the lein uberjar:
+</li>
+</ul>
+<pre class="example">
+jaotc -J-XX:+UseCompressedOops -J-XX:+UseParallelGC -J-Xmx4g -J-cp \
+  -J/home/tcrawley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/tcrawley/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/home/tcrawley/.m2/repository/org/osgi/org.osgi.compendium/4.2.0/org.osgi.compendium-4.2.0.jar:/home/tcrawley/jars/plexus-cli-1.6.jar:/home/tcrawley/jars/archetype-common-3.0.0.jar:/home/tcrawley/jars/javax.servlet-api-3.1.0.jar:/home/tcrawley/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar \
+  --compile-for-tiered --info --output ~/.lein/liblein.so  \ 
+  --jar ~/.lein/self-installs/leiningen-2.7.1-standalone.jar --ignore-errors
+</pre>
+<ul class="org-ul">
+<li>Editing the <code>lein</code> script to comment out bootclasspath usage (since that doesn't work under Java 9):
+</li>
+</ul>
+<pre class="example">
+# BOOTCLASSPATH="-Xbootclasspath/a:$LEIN_JAR"
+</pre>
+<ul class="org-ul">
+<li>Copying <code>libjava.base.so</code> to <code>~/.lein</code>
+</li>
+<li>Setting the proper JVM args:
+</li>
+</ul>
+<pre class="example">
+export LEIN_JVM_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseParallelGC -XX:AOTLibrary=~/.lein/libjava.base.so:~/.lein/liblein.so"
+</pre>
+<ul class="org-ul">
+<li>And, finally, running <code>lein</code>:
+</li>
+</ul>
+<pre class="example">
+lein version
+</pre>
+
+<p>
+However, this resulted decreased startup performance:
+</p>
+
+<ul class="org-ul">
+<li><code>lein</code> + Java 8 w/bootclasspath hack: <code>1.495s</code>
+</li>
+<li><code>lein</code> + Java 9 no bootclasspath hack: <code>2.334s</code>
+</li>
+<li><code>lein</code> + Java 9 + AOT: <code>3.051s</code>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">G1 garbage collector</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>A good description of what it does: <a href="http://www.oracle.com/technetwork/tutorials/tutorials-1876574.html#t2">http://www.oracle.com/technetwork/tutorials/tutorials-1876574.html#t2</a>
+</li>
+<li>Performance concerns: <a href="https://www.optaplanner.org/blog/2015/07/31/WhatIsTheFastestGarbageCollectorInJava8.html">https://www.optaplanner.org/blog/2015/07/31/WhatIsTheFastestGarbageCollectorInJava8.html</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Modules</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>State of the Module System (slightly dated): <a href="http://openjdk.java.net/projects/jigsaw/spec/sotms/">http://openjdk.java.net/projects/jigsaw/spec/sotms/</a>
+</li>
+<li>Related Clojure issues: 
+<ul class="org-ul">
+<li>Reflection on package-private classes: <a href="http://dev.clojure.org/jira/browse/CLJ-2066">http://dev.clojure.org/jira/browse/CLJ-2066</a>
+</li>
+<li>Loading from the bootclasspath: <a href="http://dev.clojure.org/jira/browse/CLJ-2077">http://dev.clojure.org/jira/browse/CLJ-2077</a>
+</li>
+</ul>
+</li>
+
+<li>The <code>--permit-illegal-access</code> flag: <a href="http://mail.openjdk.java.net/pipermail/jigsaw-dev/2017-March/011763.html">http://mail.openjdk.java.net/pipermail/jigsaw-dev/2017-March/011763.html</a>  
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Toby Crawley</p>
+<p class="date">Created: 2017-03-31 Fri 15:49</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
