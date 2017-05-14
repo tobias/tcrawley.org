@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>group-ldap-auth</title>
+</head>
+<body>
+<h1>group-ldap-auth</h1>
+
+Group-ldap-auth provides a mechanism for authenticating users as members of static or dynamic
+groups against a LDAP directory from a <a href="http://www.squid-cache.org/">Squid</a> proxy 
+server.
+<p>
+If you would like to receive announcements about changes to this project, please
+<a
+href="http://lists.sourceforge.net/lists/listinfo/group-ldap-auth-announce">subscribe</a>
+to the announce mailing list. There is also a help mailing list. If you would
+like to help others use group-ldap-auth, or are looking for help, please 
+<a
+href="http://lists.sourceforge.net/lists/listinfo/group-ldap-auth-help">subscribe</a>.
+
+<h2>The Present</h2>
+<p>
+The current and supported release is the 1.4 release for 2.4 STABLE7 (released 2002-09-23).
+<ul>
+<li>If you are running any other release, you should
+switch to this release, as it fixes several bugs and adds several new features over previous 
+releases. </li>
+<li>If you have used a previous release of group-ldap-auth, be sure to read 
+the <a href="./README-2.4.STABLE7-1.4.txt">README</a> for the current release since
+the command line options for the auth module have changed considerably.</li>
+</ul>You can download
+the release <a
+href="./group_ldap_auth.diff-2.4.STABLE7-1.4.gz">here</a>, and read the release notes 
+<a href="http://sourceforge.net/project/shownotes.php?release_id=112331">here</a>.
+<h2>The Past</h2>
+<p>
+If
+you are looking for information on releases for Squid 2.3, look <a
+href="http://group-ldap-auth.sourceforge.net/squid/group_ldap_auth/index.html">here</a>.
+
+<h2>The Future</h2>
+
+LDAP group authentication will be included in <a href="http://www.squid-cache.org/Versions/v2/2.5/">Squid 2.5</a>, and this module will
+most likely become extinct.
+
+<h2>FAQ</h2>
+<p><b>How do I install the patch?</b>
+<p>First, gunzip the patch file. Then go to the top of the squid source directory and run the patch command stripping off the first two parts of the path. Example:
+<pre>
+    % cd ~/src/squid-2.4.STABLE6/
+    % patch -p2 < ~/group-ldap-auth.diff-2.4.STABLE6-1.3
+</pre>
+<p><b>Can I use group-ldap-auth with Microsoft's Active Directory?</b>
+<p>The following was submitted from a user:
+<pre>
+I use it [version 1.4] with an SSL-enabled Active Directory Server with the following configuration:
+
+ldap_auth_program /usr/lib/squid/group_ldap_auth -b dc=my-domain,dc=de -h \
+server.my-domain.de -p 636 -g distinguishedName -d CN=lookup,OU=Services,\
+OU=Users,DC=my-domain,DC=de -w lookup -u cn -m member -o group -S -l \
+/var/log/squid/ldaplog
+
+acl ldap_backoffice ldap_auth static 'CN=BackOffice,OU=Groups,dc=my-domain,dc=de'
+acl ldap_management ldap_auth static 'CN=Management,OU=Groups,dc=my-domain,dc=de'
+acl ldap_it-service ldap_auth static 'CN=IT-Service,OU=Groups,dc=my-domain,dc=de'
+acl ldap_development ldap_auth static 'CN=DEVELOPMENT,OU=Groups,dc=my-domain,dc=de'
+
+http_access allow ldap_development
+http_access allow ldap_backoffice
+http_access allow ldap_management
+http_access allow ldap_it-service
+http_access deny all
+
+Microsoft AD uses 'cn' as the uid attribute, 'group' as objectclass that defines
+a group and 'distinguishedName' as the attribute that identifies a group. With 
+these settings group_ldap_auth runs out of the box and you can use your Microsoft
+AD groups to authenticate.
+
+
+</pre>
+
+<h2>Support</h2>
+
+<p>
+email <a href="mailto:tocrawle@users.sourceforge.net">me</a> with any questions.
+<hr>
+<A href="http://sourceforge.net"> <IMG src="http://sourceforge.net/sflogo.php?group_id=37432" width="88" height="31" border="0" alt="SourceForge Logo"></A>
+
+<A HREF="http://www.squid-cache.org/">
+<IMG SRC="http://www.squid-cache.org/Icons/squidnow.gif" ALT="Squid Now!">
+</A>
+
+<a href="http://www.openldap.org/"><img alt="Uses OpenLDAP" border="0" src="http://www.openldap.org/images/powered/openldap-uses-sm.gif"></a>
+
+
+<div>Last updated 09/24/2002 16:36:49</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

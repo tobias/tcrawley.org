@@ -32,7 +32,10 @@
       {"name": "credit_card_validator", "url": "https://github.com/tobias/credit_card_validator"},
       {"name": "downplay-mode", "url": "https://github.com/tobias/downplay-mode"},
       {"name": "dynapath", "url": "https://github.com/tobias/dynapath"},
-      {"name": "github-rss", "url": "https://github.com/tobias/github-rss"},
+      {"name": "github-rss", "url":
+       "https://github.com/tobias/github-rss"},
+      {"name": "group-ldap-auth", "url":
+       "./oldies/group_ldap_auth/"},
       {"name": "immutant-transit", "url": "https://github.com/immutant/immutant-transit"},
       {"name": "lein-immutant", "url":
        "https://github.com/immutant/lein-immutant"},
@@ -45,11 +48,14 @@
        "https://github.com/projectodd/shimdandy"},
       {"name": "supersport", "url":
        "https://github.com/tobias/supersport"},
-      {"name": "twitter4j4r", "url": "https://github.com/tobias/twitter4j4r"},
-      {"name": "zendesk_remote_auth", "url": "https://github.com/viewbook/zendesk_remote_auth"}],
+      {"name": "twitter4j4r", "url":
+       "https://github.com/tobias/twitter4j4r"},
+      {"name": "VDX", "url":
+       "https://github.com/projectodd/vdx"},
+      {"name": "zendesk_remote_auth", "url": "https://github.com/tobias/zendesk_remote_auth"}],
     "contributedProjects": [
       {"name": "autodoc", "url": "https://github.com/tomfaulhaber/autodoc/commits?author=tobias"},
-      {"name": "awesome_print", "url": "https://github.com/michaeldv/awesome_print/commits?author=tobias"},
+      {"name": "awesome_print", "url": "https://github.com/awesome-print/awesome_print/commits?author=tobias"},
       {"name": "awestruct", "url":
        "https://github.com/awestruct/awestruct/commits?author=tobias"},
       {"name": "Boot", "url":
@@ -60,6 +66,7 @@
       {"name": "clojure-maven-plugin", "url": "https://github.com/talios/clojure-maven-plugin/commits?author=tobias"},
       {"name": "codox", "url":
        "https://github.com/weavejester/codox/commits?author=tobias"},
+      {"name": "fission", "url": "https://github.com/fission/fission/commits?author=tobias"},
       {"name": "JRuby", "url": "https://github.com/jruby/jruby/commits?author=tobias"},
       {"name": "lazybot", "url":
        "https://github.com/Raynes/lazybot/commits?author=tobias"},
