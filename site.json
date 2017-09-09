@@ -48,6 +48,9 @@
        "https://github.com/projectodd/shimdandy"},
       {"name": "supersport", "url":
        "https://github.com/tobias/supersport"},
+      {"name": "tclXcom", "url":
+       "./oldies/tclXcom/",
+       "comment": "My first OSS project. Also: tabs, gross."},
       {"name": "twitter4j4r", "url":
        "https://github.com/tobias/twitter4j4r"},
       {"name": "VDX", "url":
@@ -73,6 +76,8 @@
       {"name": "Leiningen", "url": "https://github.com/technomancy/leiningen/commits?author=tobias"},
       {"name": "leinjacker", "url":
        "https://github.com/sattvik/leinjacker/commits?author=tobias"},
+      {"name": "org-reveal", "url":
+       "https://github.com/yjwen/org-reveal/commits?author=tobias"},
       {"name": "Pomegranate", "url":
        "https://github.com/cemerick/pomegranate/commits?author=tobias"},
       {"name": "REPL-y", "url": "https://github.com/trptcolin/reply/commits?author=tobias"},
@@ -91,7 +96,13 @@
       {"name": "Introduction to Immutant 2", "url": "https://github.com/tobias/den-of-clojure-preso", "location": "Den Of Clojure 2014"},
       {"name": "Introduction to TorqueBox 4", "url": "https://github.com/tobias/boulder-rb-preso", "location": "Boulder Ruby Group 2014"},
       {"name": "Building decoupled polyglot applications with Vert.x", "url": "/presentations/codemash-vertx-2014/", "location": "Codemash 2014"},
-      {"name": "Building Vert.x applications with Clojure", "url": "presentations/eclipsecon-vertx-2014/", "location": "EclipseCon 2014"},
+      {"name": "Building Vert.x applications with Clojure", "url":
+       "presentations/eclipsecon-vertx-2014/", "location": "EclipseCon 2014"},
+      {"name": "Write your own language for fun and no profit",
+       "url":  "https://www.youtube.com/watch?v=hKUwPGtPpZk",
+       "location": "Asheville Coder's League Feb. 2014",
+       "video": true},
+      
       {"name": "Developing Asynchronous Polyglot Applications with Vert.x",
        "url":  "https://www.youtube.com/watch?v=MXrNAXGOSOg",
        "location": "Clojure/Conj 2013",

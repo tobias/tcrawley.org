@@ -111,3 +111,7 @@ li {
 span.project {
   padding-right: 5px;
 }
+
+.project-list .comment {
+    font-style: italic;
+}

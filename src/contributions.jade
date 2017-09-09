@@ -16,15 +16,17 @@ layout: layout.jade
   .col-md-5
     h2 I also created:
     .well
-      ul
+      ul.project-list
         each project in site.createdProjects
           li
-            a(href="#{project.url}") #{project.name}
+            a(href="#{project.url}") #{project.name} 
+            span.comment #{project.comment}
             
   .col-md-5
     h2 And have contributed to:
     .well
-      ul
+      ul.project-list
         each project in site.contributedProjects
           li
             a(href="#{project.url}") #{project.name}
+            span.comment #{project.comment}
