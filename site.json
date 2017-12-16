@@ -39,7 +39,9 @@
       {"name": "immutant-transit", "url": "https://github.com/immutant/immutant-transit"},
       {"name": "lein-immutant", "url":
        "https://github.com/immutant/lein-immutant"},
-      {"name": "lein-webdav", "url": "https://github.com/tobias/lein-webdav"},
+      {"name": "lein-webdav", "url":
+       "https://github.com/tobias/lein-webdav"},
+      {"name": "looper", "url": "https://github.com/FarmLogs/looper"},
       {"name": "proddbot", "url":
        "https://github.com/tobias/proddbot"},
       {"name": "progress", "url":
