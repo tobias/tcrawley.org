@@ -1,0 +1,97 @@
+#+TITLE: Clojars Worklog
+#+AUTHOR: Toby Crawley
+#+EMAIL: toby@tcrawley.org
+#+OPTIONS:   num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="worklog-style.css" />
+
+* Intro
+
+This worklog covers work performed on [[https://clojars.org][Clojars]] under a limited contract
+from [[https://www.clojuriststogether.org/][Clojurists Together]] and the [[https://sfconservancy.org/][Software Freedom Conservancy]]. The
+bulk of this work is moving the Clojars infrastructure from Rackspace
+to AWS, but also will include security improvements and general
+maintenance.
+
+* December 2019
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/8e52280730561a266c4a3830a49a218dd24e816d...5e5b28df3f21b7e4d7c60030715cb17f4fe038bc][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/6cb7ff40195314278cdcd10cee96948fe31b801f...178476d2fdeaca19920a67f5a510c57da87d59e3][~clojars-server-config~]] 
+
+This month I worked on moving Clojars from an embedded SQLite database
+to PostgreSQL. This was the first step in allowing the Clojars server
+to be ephemeral, since we can't keep the db on disk to satisfy
+that. This included setting up PostgreSQL on the Rackspace server and
+setting up hourly/daily backups to Rackspace Cloudfiles along with
+adjustments to queries within the app that relied on SQLite quirks. 
+
+
+* January 2020
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/5e5b28df3f21b7e4d7c60030715cb17f4fe038bc...9ad14ae6cb074a7bd55eca67731ef85b58387d2b][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/178476d2fdeaca19920a67f5a510c57da87d59e3...9178ddb895800994735d0419bdeb1fcb9afc32cc][~clojars-server-config~]] 
+
+The work in January focused on moving the collected usage statistics
+storage from the server to Amazon S3. This required changing all code
+that generated and used the stats to use S3 instead. This also
+required modifying the Fastly configuration to serve the stats from
+S3.
+
+I also changed the server Nginx config to redirect all requests made
+to the on-server repository to the CDN-backed repository to prepare
+for removing the repository from the server.
+
+
+* February 2020
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/9ad14ae6cb074a7bd55eca67731ef85b58387d2b...296cea27b7e3325d775406cd7cfe735bc23ea2dc][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/9178ddb895800994735d0419bdeb1fcb9afc32cc...4a3a3006367615b109125397c3a7d1caf77e39a8][~clojars-server-config~]] 
+
+This month I moved the repository from Rackspace Cloudfiles to Amazon
+S3, and adjusted the Fastly CDN to serve artifacts from S3. This also
+involved modifying the feed generation logic to upload to the S3
+repository bucket instead of to Cloudfiles.
+
+I also set up PostgreSQL on Amazon RDS and modified the Rackspace
+server to use that database instead of the local one.
+
+
+* March 2020
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/296cea27b7e3325d775406cd7cfe735bc23ea2dc...a962a255586bf82f38a009451100f155818ef13a][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/4a3a3006367615b109125397c3a7d1caf77e39a8...0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a][~clojars-server-config~]] 
+
+This month I moved the server from Rackspace to AWS EC2. This
+involved:
+
+- Updating the app to send email via AWS SES
+- Moving all email receiving (for users and aliases) from the server
+  to Amazon Workmail
+- Modifying the Ansible configuration to set up a new server on EC2
+- Running a [[https://groups.google.com/d/msg/clojure/zlBaMkw5Wss/sgGVYQxCAQAJ][beta of the new server setup]] 
+- Switching all traffic to the new server
+- Removal of all Cloudfiles dependencies from the codebase
+
+* April 2020
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1][~clojars-server-config~]] 
+
+** Migration work
+
+This month included work finishing up the AWS move, including:
+
+- Setting up a way to build new AMIs for the server
+- Modifying the deploy process to allow new instances to deploy the
+  current release
+- Moving the server to an auto-scaling group to make it more robust
+  and allow zero-downtime new AMI releasing
+- [[https://github.com/clojars/clojars-server-config#system-diagram][Documenting the new server architecture]]
+- Upgrading from Java 8 to Java 11
+
+** Security work
+
+I then started on improving security. The work here was focused on
+adding a [[https://github.com/clojars/clojars-web/issues/726][deploy token]] feature. This was [[https://groups.google.com/forum/#!topic/clojars-maintainers/nqV5yc-05BI][released in early May]], but 90%
+of the work was completed in April.
+
+I also [[https://github.com/clojars/clojars-web/issues/495][fixed an issue]] where the cookies weren't being set as secure.
+
+# * April 2020
+# TBD 
+# https://github.com/clojars/clojars-web/compare/...
+# https://github.com/clojars/clojars-server-config/compare/...
