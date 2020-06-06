@@ -89,12 +89,7 @@ involved:
 
   *Changelogs:* [[https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1][~clojars-server-config~]] 
 
-** Migration work
-   :PROPERTIES:
-   :CUSTOM_ID: apr-2020-migration
-   :END:
-
-This month included work finishing up the AWS move, including:
+This month included work finishing up the migration to AWS, including:
 
 - Setting up a way to build new AMIs for the server
 - Modifying the deploy process to allow new instances to deploy the
@@ -103,11 +98,6 @@ This month included work finishing up the AWS move, including:
   and allow zero-downtime new AMI releasing
 - [[https://github.com/clojars/clojars-server-config#system-diagram][Documenting the new server architecture]]
 - Upgrading from Java 8 to Java 11
-
-** Security work
-   :PROPERTIES:
-   :CUSTOM_ID: apr-2020-security
-   :END:
 
 I then started on improving security. The work here was focused on
 adding a [[https://github.com/clojars/clojars-web/issues/726][deploy token]] feature. This was [[https://groups.google.com/forum/#!topic/clojars-maintainers/nqV5yc-05BI][released in early May]], but 90%
