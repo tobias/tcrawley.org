@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-04 Mon 19:35 -->
+<!-- 2020-06-06 Sat 10:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Clojars Worklog</title>
@@ -235,24 +235,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org36a3fa5">Intro</a></li>
-<li><a href="#orgd5733f5">December 2019</a></li>
-<li><a href="#orgd2c3ba0">January 2020</a></li>
-<li><a href="#orge08b36e">February 2020</a></li>
-<li><a href="#org5a7ce2c">March 2020</a></li>
-<li><a href="#org12219d4">April 2020</a>
+<li><a href="#orge2aeeb6">Intro</a></li>
+<li><a href="#orgd3fae5d">December 2019</a></li>
+<li><a href="#orgad213fc">January 2020</a></li>
+<li><a href="#orge953f13">February 2020</a></li>
+<li><a href="#org0c8f6f4">March 2020</a></li>
+<li><a href="#orga347a72">April 2020</a>
 <ul>
-<li><a href="#org9cbb968">Migration work</a></li>
-<li><a href="#org59c9eb3">Security work</a></li>
+<li><a href="#org45297d6">Migration work</a></li>
+<li><a href="#org252fffe">Security work</a></li>
 </ul>
 </li>
+<li><a href="#orgd3e6f49">May 2020</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org36a3fa5" class="outline-2">
-<h2 id="org36a3fa5">Intro</h2>
-<div class="outline-text-2" id="text-org36a3fa5">
+<div id="outline-container-orge2aeeb6" class="outline-2">
+<h2 id="orge2aeeb6">Intro</h2>
+<div class="outline-text-2" id="text-orge2aeeb6">
 <p>
 This worklog covers work performed on <a href="https://clojars.org">Clojars</a> under a limited contract
 from <a href="https://www.clojuriststogether.org/">Clojurists Together</a> and the <a href="https://sfconservancy.org/">Software Freedom Conservancy</a>. The
@@ -263,9 +264,9 @@ maintenance.
 </div>
 </div>
 
-<div id="outline-container-orgd5733f5" class="outline-2">
-<h2 id="orgd5733f5">December 2019</h2>
-<div class="outline-text-2" id="text-orgd5733f5">
+<div id="outline-container-orgd3fae5d" class="outline-2">
+<h2 id="orgd3fae5d">December 2019</h2>
+<div class="outline-text-2" id="text-orgd3fae5d">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/8e52280730561a266c4a3830a49a218dd24e816d...5e5b28df3f21b7e4d7c60030715cb17f4fe038bc"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/6cb7ff40195314278cdcd10cee96948fe31b801f...178476d2fdeaca19920a67f5a510c57da87d59e3"><code>clojars-server-config</code></a> 
 </p>
@@ -282,9 +283,9 @@ adjustments to queries within the app that relied on SQLite quirks.
 </div>
 
 
-<div id="outline-container-orgd2c3ba0" class="outline-2">
-<h2 id="orgd2c3ba0">January 2020</h2>
-<div class="outline-text-2" id="text-orgd2c3ba0">
+<div id="outline-container-orgad213fc" class="outline-2">
+<h2 id="orgad213fc">January 2020</h2>
+<div class="outline-text-2" id="text-orgad213fc">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/5e5b28df3f21b7e4d7c60030715cb17f4fe038bc...9ad14ae6cb074a7bd55eca67731ef85b58387d2b"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/178476d2fdeaca19920a67f5a510c57da87d59e3...9178ddb895800994735d0419bdeb1fcb9afc32cc"><code>clojars-server-config</code></a> 
 </p>
@@ -306,9 +307,9 @@ for removing the repository from the server.
 </div>
 
 
-<div id="outline-container-orge08b36e" class="outline-2">
-<h2 id="orge08b36e">February 2020</h2>
-<div class="outline-text-2" id="text-orge08b36e">
+<div id="outline-container-orge953f13" class="outline-2">
+<h2 id="orge953f13">February 2020</h2>
+<div class="outline-text-2" id="text-orge953f13">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/9ad14ae6cb074a7bd55eca67731ef85b58387d2b...296cea27b7e3325d775406cd7cfe735bc23ea2dc"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/9178ddb895800994735d0419bdeb1fcb9afc32cc...4a3a3006367615b109125397c3a7d1caf77e39a8"><code>clojars-server-config</code></a> 
 </p>
@@ -328,9 +329,9 @@ server to use that database instead of the local one.
 </div>
 
 
-<div id="outline-container-org5a7ce2c" class="outline-2">
-<h2 id="org5a7ce2c">March 2020</h2>
-<div class="outline-text-2" id="text-org5a7ce2c">
+<div id="outline-container-org0c8f6f4" class="outline-2">
+<h2 id="org0c8f6f4">March 2020</h2>
+<div class="outline-text-2" id="text-org0c8f6f4">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/296cea27b7e3325d775406cd7cfe735bc23ea2dc...a962a255586bf82f38a009451100f155818ef13a"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/4a3a3006367615b109125397c3a7d1caf77e39a8...0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a"><code>clojars-server-config</code></a> 
 </p>
@@ -352,17 +353,17 @@ to Amazon Workmail</li>
 </div>
 </div>
 
-<div id="outline-container-org12219d4" class="outline-2">
-<h2 id="org12219d4">April 2020</h2>
-<div class="outline-text-2" id="text-org12219d4">
+<div id="outline-container-orga347a72" class="outline-2">
+<h2 id="orga347a72">April 2020</h2>
+<div class="outline-text-2" id="text-orga347a72">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1"><code>clojars-server-config</code></a> 
 </p>
 </div>
 
-<div id="outline-container-org9cbb968" class="outline-3">
-<h3 id="org9cbb968">Migration work</h3>
-<div class="outline-text-3" id="text-org9cbb968">
+<div id="outline-container-org45297d6" class="outline-3">
+<h3 id="org45297d6">Migration work</h3>
+<div class="outline-text-3" id="text-org45297d6">
 <p>
 This month included work finishing up the AWS move, including:
 </p>
@@ -379,9 +380,9 @@ and allow zero-downtime new AMI releasing</li>
 </div>
 </div>
 
-<div id="outline-container-org59c9eb3" class="outline-3">
-<h3 id="org59c9eb3">Security work</h3>
-<div class="outline-text-3" id="text-org59c9eb3">
+<div id="outline-container-org252fffe" class="outline-3">
+<h3 id="org252fffe">Security work</h3>
+<div class="outline-text-3" id="text-org252fffe">
 <p>
 I then started on improving security. The work here was focused on
 adding a <a href="https://github.com/clojars/clojars-web/issues/726">deploy token</a> feature. This was <a href="https://groups.google.com/forum/#!topic/clojars-maintainers/nqV5yc-05BI">released in early May</a>, but 90%
@@ -394,10 +395,39 @@ I also <a href="https://github.com/clojars/clojars-web/issues/495">fixed an issu
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgd3e6f49" class="outline-2">
+<h2 id="orgd3e6f49">May 2020</h2>
+<div class="outline-text-2" id="text-orgd3e6f49">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/a60d9dc788026651999b63f1e62a1677e637e33d...1923aec0b0c7e49ffc3ca3eea79f1989e78e17d3"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/683e8ea9b51b24a2dc31f13ce742587ce2461ba1...f49d515bdc63d94aa114b2a97c282f1af3bc6025"><code>clojars-server-config</code></a>
+</p>
+
+<p>
+I continued working on deploy tokens, adding:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/f6fc33168c76298bd084e8903ec9bf22a9ec226e">An endpoint</a> that GitHub will use to report when a deploy token is
+found in source code that will notify the user and disable the token</li>
+<li>The option to <a href="https://github.com/clojars/clojars-web/commit/fc572b5cf1acdbaf17655b1b8a6f32bfcc89015e">scope a deploy token to a group or artifact</a></li>
+</ul>
+
+<p>
+I also <a href="https://github.com/clojars/clojars-web/pull/758">implemented the bulk of two-factor authentication</a>. This wasn't
+released in May, but will be released by mid-June.
+</p>
+
+<p>
+Part of the two-factor implementation is <a href="https://github.com/clojars/clojars-web/pull/758/commits/62e5e2313bd47530b44de732c7a2844ffe1783ee">an internal eventing system</a>
+that will make it easier to add additional email notifications in the
+future.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2020-05-04 Mon 19:35</p>
+<p class="date">Created: 2020-06-06 Sat 10:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

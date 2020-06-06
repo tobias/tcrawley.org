@@ -69,7 +69,7 @@ involved:
 
 * April 2020
 
-*Changelogs:* [[https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1][~clojars-server-config~]] 
+  *Changelogs:* [[https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1][~clojars-server-config~]] 
 
 ** Migration work
 
@@ -90,6 +90,22 @@ adding a [[https://github.com/clojars/clojars-web/issues/726][deploy token]] fea
 of the work was completed in April.
 
 I also [[https://github.com/clojars/clojars-web/issues/495][fixed an issue]] where the cookies weren't being set as secure.
+
+* May 2020
+
+  *Changelogs:* [[https://github.com/clojars/clojars-web/compare/a60d9dc788026651999b63f1e62a1677e637e33d...1923aec0b0c7e49ffc3ca3eea79f1989e78e17d3][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/683e8ea9b51b24a2dc31f13ce742587ce2461ba1...f49d515bdc63d94aa114b2a97c282f1af3bc6025][~clojars-server-config~]]
+
+I continued working on deploy tokens, adding:
+- [[https://github.com/clojars/clojars-web/commit/f6fc33168c76298bd084e8903ec9bf22a9ec226e][An endpoint]] that GitHub will use to report when a deploy token is
+  found in source code that will notify the user and disable the token
+- The option to [[https://github.com/clojars/clojars-web/commit/fc572b5cf1acdbaf17655b1b8a6f32bfcc89015e][scope a deploy token to a group or artifact]]
+
+I also [[https://github.com/clojars/clojars-web/pull/758][implemented the bulk of two-factor authentication]]. This wasn't
+released in May, but will be released by mid-June.
+
+Part of the two-factor implementation is [[https://github.com/clojars/clojars-web/pull/758/commits/62e5e2313bd47530b44de732c7a2844ffe1783ee][an internal eventing system]]
+that will make it easier to add additional email notifications in the
+future.
 
 # * April 2020
 # TBD 
