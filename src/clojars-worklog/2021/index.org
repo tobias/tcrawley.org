@@ -1,0 +1,25 @@
+#+TITLE: Clojars Worklog - 2021
+#+AUTHOR: Toby Crawley
+#+EMAIL: toby@tcrawley.org
+#+OPTIONS:   num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worklog-style.css" />
+
+* Intro
+  :PROPERTIES:
+  :CUSTOM_ID: intro
+  :END:
+
+This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
+the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers security
+improvements and general maintenance.
+
+* January 2021
+  :PROPERTIES:
+  :CUSTOM_ID: jan-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-server-config/compare/18c2ee360e93e25c804a9ef0fa458e07c3022b70...8b53cbf011f906dfb62a60ea75ff21468a3396fe][~clojars-server-config~]]
+
+This work this month was general maintenance, along with debugging
+issues with maven index creation.
+

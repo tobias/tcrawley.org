@@ -6,15 +6,15 @@
     "github": "https://github.com/tobias",
     "linkedin": "https://www.linkedin.com/in/tobycrawley",
     "featuredProjects": [
-      {"name": "WildFly Swarm",
-       "url": "http://wildfly-swarm.io",
-       "description": "A microservices platform based on the WildFly application server"},
-      {"name": "Immutant",
-       "url": "http://immutant.org",
-       "description": "Suite of Clojure libraries for web development"},
       {"name": "Clojars",
        "url": "https://clojars.org",
        "description": "The Clojure community package repository"},
+      {"name": "Immutant",
+       "url": "http://immutant.org",
+       "description": "Suite of Clojure libraries for web development"},
+      {"name": "Thorntail",
+       "url": "https://thorntail.io/",
+       "description": "A microservices platform based on the WildFly application server"},
       {"name": "TorqueBox",
        "url": "http://torquebox.org",
        "description": "A JRuby application platform"},
@@ -24,10 +24,14 @@
     "createdProjects": [
       {"name": "backstage", "url":
        "https://github.com/torquebox/backstage"},
+      {"name": "badpad",
+       "url": "https://github.com/tobias/badpad"},
       {"name": "boot-immutant", "url":
        "https://github.com/immutant/boot-immutant"},
       {"name": "boot-jruby", "url":
        "https://github.com/tobias/boot-jruby"},
+      {"name": "cljdoc",
+       "url": "https://github.com/cljdoc/cljdoc/commits?author=tobias"},
       {"name": "clj.rb", "url": "https://github.com/tobias/clj.rb"},
       {"name": "credit_card_validator", "url": "https://github.com/tobias/credit_card_validator"},
       {"name": "downplay-mode", "url": "https://github.com/tobias/downplay-mode"},
@@ -46,6 +50,8 @@
        "https://github.com/tobias/proddbot"},
       {"name": "progress", "url":
        "https://github.com/tobias/progress"},
+      {"name": "quickwin",
+       "url": "https://github.com/tobias/quickwin"},
       {"name": "ShimDandy", "url":
        "https://github.com/projectodd/shimdandy"},
       {"name": "supersport", "url":
@@ -67,6 +73,8 @@
        "https://github.com/boot-clj/boot/commits?author=tobias"},
       {"name": "Ceylon", "url": "http://ceylon-lang.org/"},
       {"name": "Cider", "url": "https://github.com/clojure-emacs/cider/commits?author=tobias"},
+      {"name": "cljstyle",
+       "url": "https://github.com/greglook/cljstyle/commits?author=tobias"},
       {"name": "Clojure", "url": "https://github.com/clojure/clojure/commits?author=tobias"},
       {"name": "clojure-maven-plugin", "url": "https://github.com/talios/clojure-maven-plugin/commits?author=tobias"},
       {"name": "codox", "url":
@@ -80,6 +88,8 @@
        "https://github.com/sattvik/leinjacker/commits?author=tobias"},
       {"name": "org-reveal", "url":
        "https://github.com/yjwen/org-reveal/commits?author=tobias"},
+      {"name": "pedestal",
+       "url": "https://github.com/pedestal/pedestal/commits?author=tobias"},
       {"name": "Pomegranate", "url":
        "https://github.com/cemerick/pomegranate/commits?author=tobias"},
       {"name": "REPL-y", "url": "https://github.com/trptcolin/reply/commits?author=tobias"},

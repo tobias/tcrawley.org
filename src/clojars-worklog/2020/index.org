@@ -1,8 +1,8 @@
-#+TITLE: Clojars Worklog
+#+TITLE: Clojars Worklog - 2020
 #+AUTHOR: Toby Crawley
 #+EMAIL: toby@tcrawley.org
 #+OPTIONS:   num:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="worklog-style.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worklog-style.css" />
 
 * Intro
   :PROPERTIES:
@@ -123,6 +123,20 @@ released in May, but will be released by mid-June.
 Part of the two-factor implementation is [[https://github.com/clojars/clojars-web/pull/758/commits/62e5e2313bd47530b44de732c7a2844ffe1783ee][an internal eventing system]]
 that will make it easier to add additional email notifications in the
 future.
+
+* June 2020
+  :PROPERTIES:
+  :CUSTOM_ID: june-2020
+  :END:
+
+  *Changelogs:* [[https://github.com/clojars/clojars-web/compare/1923aec0b0c7e49ffc3ca3eea79f1989e78e17d3...4f7db697a835e64fef59daa8701203aaeda4af70][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/f49d515bdc63d94aa114b2a97c282f1af3bc6025...4e5de00fefc17846f8bd423b7f84ceb7a62042af][~clojars-server-config~]]
+
+This month was focused on security and monitoring improvements. I:
+
+- finished and [[https://groups.google.com/d/msg/clojure/BkjNULCvT3I/wj1lUurwAQAJ][released two-factor authentication]]
+- [[https://github.com/clojars/clojars-web/pull/760][implemented logging]] to provide more insight into the behavior of the application
+- [[https://github.com/clojars/clojars-server-config/commit/2ca3ac745f55dc8b0eea97ae57b1a229b66456cf][added rate-limiting]] to the password reset endpoint
+- [[https://groups.google.com/d/msg/clojure/UXx3ko0Ne-w/VnJA4eu6AQAJ][removed the ability to deploy artifacts using a password]]; a deploy token is now required
 
 # * April 2020
 # TBD 

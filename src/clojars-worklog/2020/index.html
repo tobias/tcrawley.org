@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-02-06 Sat 16:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clojars Worklog - 2020</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Toby Crawley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../worklog-style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Clojars Worklog - 2020</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#dec-2019">December 2019</a></li>
+<li><a href="#jan-2020">January 2020</a></li>
+<li><a href="#feb-2020">February 2020</a></li>
+<li><a href="#mar-2020">March 2020</a></li>
+<li><a href="#apr-2020">April 2020</a></li>
+<li><a href="#may-2020">May 2020</a></li>
+<li><a href="#june-2020">June 2020</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5f2874a" class="outline-2">
+<h2 id="intro"><a id="org5f2874a"></a>Intro</h2>
+<div class="outline-text-2" id="text-intro">
+<p>
+This worklog covers work performed on <a href="https://clojars.org">Clojars</a> under a limited contract
+from <a href="https://www.clojuriststogether.org/">Clojurists Together</a> and the <a href="https://sfconservancy.org/">Software Freedom Conservancy</a>. The
+bulk of this work is moving the Clojars infrastructure from Rackspace
+to AWS, but also will include security improvements and general
+maintenance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org40afb12" class="outline-2">
+<h2 id="dec-2019"><a id="org40afb12"></a>December 2019</h2>
+<div class="outline-text-2" id="text-dec-2019">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/8e52280730561a266c4a3830a49a218dd24e816d...5e5b28df3f21b7e4d7c60030715cb17f4fe038bc"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/6cb7ff40195314278cdcd10cee96948fe31b801f...178476d2fdeaca19920a67f5a510c57da87d59e3"><code>clojars-server-config</code></a> 
+</p>
+
+<p>
+This month I worked on moving Clojars from an embedded SQLite database
+to PostgreSQL. This was the first step in allowing the Clojars server
+to be ephemeral, since we can't keep the db on disk to satisfy
+that. This included setting up PostgreSQL on the Rackspace server and
+setting up hourly/daily backups to Rackspace Cloudfiles along with
+adjustments to queries within the app that relied on SQLite quirks. 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga810acd" class="outline-2">
+<h2 id="jan-2020"><a id="orga810acd"></a>January 2020</h2>
+<div class="outline-text-2" id="text-jan-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/5e5b28df3f21b7e4d7c60030715cb17f4fe038bc...9ad14ae6cb074a7bd55eca67731ef85b58387d2b"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/178476d2fdeaca19920a67f5a510c57da87d59e3...9178ddb895800994735d0419bdeb1fcb9afc32cc"><code>clojars-server-config</code></a> 
+</p>
+
+<p>
+The work in January focused on moving the collected usage statistics
+storage from the server to Amazon S3. This required changing all code
+that generated and used the stats to use S3 instead. This also
+required modifying the Fastly configuration to serve the stats from
+S3.
+</p>
+
+<p>
+I also changed the server Nginx config to redirect all requests made
+to the on-server repository to the CDN-backed repository to prepare
+for removing the repository from the server.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org3e2b8a6" class="outline-2">
+<h2 id="feb-2020"><a id="org3e2b8a6"></a>February 2020</h2>
+<div class="outline-text-2" id="text-feb-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/9ad14ae6cb074a7bd55eca67731ef85b58387d2b...296cea27b7e3325d775406cd7cfe735bc23ea2dc"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/9178ddb895800994735d0419bdeb1fcb9afc32cc...4a3a3006367615b109125397c3a7d1caf77e39a8"><code>clojars-server-config</code></a> 
+</p>
+
+<p>
+This month I moved the repository from Rackspace Cloudfiles to Amazon
+S3, and adjusted the Fastly CDN to serve artifacts from S3. This also
+involved modifying the feed generation logic to upload to the S3
+repository bucket instead of to Cloudfiles.
+</p>
+
+<p>
+I also set up PostgreSQL on Amazon RDS and modified the Rackspace
+server to use that database instead of the local one.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1621f8b" class="outline-2">
+<h2 id="mar-2020"><a id="org1621f8b"></a>March 2020</h2>
+<div class="outline-text-2" id="text-mar-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/296cea27b7e3325d775406cd7cfe735bc23ea2dc...a962a255586bf82f38a009451100f155818ef13a"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/4a3a3006367615b109125397c3a7d1caf77e39a8...0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a"><code>clojars-server-config</code></a> 
+</p>
+
+<p>
+This month I moved the server from Rackspace to AWS EC2. This
+involved:
+</p>
+
+<ul class="org-ul">
+<li>Updating the app to send email via AWS SES</li>
+<li>Moving all email receiving (for users and aliases) from the server
+to Amazon Workmail</li>
+<li>Modifying the Ansible configuration to set up a new server on EC2</li>
+<li>Running a <a href="https://groups.google.com/d/msg/clojure/zlBaMkw5Wss/sgGVYQxCAQAJ">beta of the new server setup</a></li>
+<li>Switching all traffic to the new server</li>
+<li>Removal of all Cloudfiles dependencies from the codebase</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org649c952" class="outline-2">
+<h2 id="apr-2020"><a id="org649c952"></a>April 2020</h2>
+<div class="outline-text-2" id="text-apr-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/a962a255586bf82f38a009451100f155818ef13a...a60d9dc788026651999b63f1e62a1677e637e33d"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/0f69f0eb8a0cd9d9e6e300cbb695c9530b681a0a...683e8ea9b51b24a2dc31f13ce742587ce2461ba1"><code>clojars-server-config</code></a> 
+</p>
+
+<p>
+This month included work finishing up the migration to AWS, including:
+</p>
+
+<ul class="org-ul">
+<li>Setting up a way to build new AMIs for the server</li>
+<li>Modifying the deploy process to allow new instances to deploy the
+current release</li>
+<li>Moving the server to an auto-scaling group to make it more robust
+and allow zero-downtime new AMI releasing</li>
+<li><a href="https://github.com/clojars/clojars-server-config#system-diagram">Documenting the new server architecture</a></li>
+<li>Upgrading from Java 8 to Java 11</li>
+</ul>
+
+<p>
+I then started on improving security. The work here was focused on
+adding a <a href="https://github.com/clojars/clojars-web/issues/726">deploy token</a> feature. This was <a href="https://groups.google.com/forum/#!topic/clojars-maintainers/nqV5yc-05BI">released in early May</a>, but 90%
+of the work was completed in April.
+</p>
+
+<p>
+I also <a href="https://github.com/clojars/clojars-web/issues/495">fixed an issue</a> where the cookies weren't being set as secure.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org79b647e" class="outline-2">
+<h2 id="may-2020"><a id="org79b647e"></a>May 2020</h2>
+<div class="outline-text-2" id="text-may-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/a60d9dc788026651999b63f1e62a1677e637e33d...1923aec0b0c7e49ffc3ca3eea79f1989e78e17d3"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/683e8ea9b51b24a2dc31f13ce742587ce2461ba1...f49d515bdc63d94aa114b2a97c282f1af3bc6025"><code>clojars-server-config</code></a>
+</p>
+
+<p>
+I continued working on deploy tokens, adding:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/f6fc33168c76298bd084e8903ec9bf22a9ec226e">An endpoint</a> that GitHub will use to report when a deploy token is
+found in source code that will notify the user and disable the token</li>
+<li>The option to <a href="https://github.com/clojars/clojars-web/commit/fc572b5cf1acdbaf17655b1b8a6f32bfcc89015e">scope a deploy token to a group or artifact</a></li>
+</ul>
+
+<p>
+I also <a href="https://github.com/clojars/clojars-web/pull/758">implemented the bulk of two-factor authentication</a>. This wasn't
+released in May, but will be released by mid-June.
+</p>
+
+<p>
+Part of the two-factor implementation is <a href="https://github.com/clojars/clojars-web/pull/758/commits/62e5e2313bd47530b44de732c7a2844ffe1783ee">an internal eventing system</a>
+that will make it easier to add additional email notifications in the
+future.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org715e988" class="outline-2">
+<h2 id="june-2020"><a id="org715e988"></a>June 2020</h2>
+<div class="outline-text-2" id="text-june-2020">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/1923aec0b0c7e49ffc3ca3eea79f1989e78e17d3...4f7db697a835e64fef59daa8701203aaeda4af70"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/f49d515bdc63d94aa114b2a97c282f1af3bc6025...4e5de00fefc17846f8bd423b7f84ceb7a62042af"><code>clojars-server-config</code></a>
+</p>
+
+<p>
+This month was focused on security and monitoring improvements. I:
+</p>
+
+<ul class="org-ul">
+<li>finished and <a href="https://groups.google.com/d/msg/clojure/BkjNULCvT3I/wj1lUurwAQAJ">released two-factor authentication</a></li>
+<li><a href="https://github.com/clojars/clojars-web/pull/760">implemented logging</a> to provide more insight into the behavior of the application</li>
+<li><a href="https://github.com/clojars/clojars-server-config/commit/2ca3ac745f55dc8b0eea97ae57b1a229b66456cf">added rate-limiting</a> to the password reset endpoint</li>
+<li><a href="https://groups.google.com/d/msg/clojure/UXx3ko0Ne-w/VnJA4eu6AQAJ">removed the ability to deploy artifacts using a password</a>; a deploy token is now required</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Toby Crawley</p>
+<p class="date">Created: 2021-02-06 Sat 16:10</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
