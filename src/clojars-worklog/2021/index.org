@@ -23,3 +23,12 @@ improvements and general maintenance.
 This work this month was general maintenance, along with debugging
 issues with maven index creation.
 
+* February 2021
+  :PROPERTIES:
+  :CUSTOM_ID: feb-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/de99524...956175e][~clojars-web~]]
+
+The bulk of work this month was [[https://github.com/clojars/clojars-web/wiki/Verified-Group-Names][developing a plan]] to improve security
+by requiring groups to be verified and [[https://github.com/clojars/clojars-web/projects/1][starting work]] on that plan.
