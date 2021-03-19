@@ -135,6 +135,7 @@
        "episode": "11"},
       {"name": "The Cognicast",
        "url": "http://blog.cognitect.com/cognicast/066-crossley-crawley",
-       "episode": "66"}]}}
-
-
+       "episode": "66"},
+      {"name": "ClojureScript Podcast",
+       "url": "https://soundcloud.com/user-959992602/s4-e25-clojars-with-toby",
+       "episode": "S4 E25"}]}}

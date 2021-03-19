@@ -28,6 +28,6 @@
     "metalsmith-serve": "0.0.4",
     "metalsmith-watch": "^1.0.1",
     "moment": "^2.11.2",
-    "then-jade": "^2.4.1"    
+    "then-jade": "^2.4.1"
   }
 }
