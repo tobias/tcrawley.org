@@ -44,3 +44,19 @@ The work this month moved us closer to [[https://github.com/clojars/clojars-web/
 - [[https://github.com/clojars/clojars-web/issues/784][auto-verifying GitHub-based groups]]
 - [[https://github.com/clojars/clojars-web/issues/786][login with GitLab]]
 - [[https://github.com/clojars/clojars-web/issues/787][auto-verifying GitLab-based groups]]
+
+* April 2021
+  :PROPERTIES:
+  :CUSTOM_ID: apr-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/1885988ea69dd69193c13387ed413902760a2ca8...f9bdc3ce08c4debe560c4d8d5a037f2b072eed93][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0d6fe9b4594c291fdfc2e0413b730d43cbd2ccc3...8208ecac68018adcbc9219da9660b0279d947693][~clojars-server-config~]]
+
+In April we released the [[https://github.com/clojars/clojars-web/projects/1][verified groups]] feature. The work included:
+
+- [[https://github.com/clojars/clojars-web/issues/789][deploy audit logging]]
+- [[https://github.com/clojars/clojars-web/issues/791][disabling deploys of new projects to non-verified groups]]
+- [[https://github.com/clojars/clojars-web/issues/790][disabling creation of new groups outside of verification]]
+- [[https://github.com/clojars/clojars-web/issues/792][documentation updates]]
+- updates to [[https://github.com/clj-commons/pomegranate/pull/128][pomegranate]] and [[https://github.com/technomancy/leiningen/pull/2736][leiningen]] to fix display of status
+  messages from Clojars deploys
