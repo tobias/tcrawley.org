@@ -45,6 +45,8 @@ The work this month moved us closer to [[https://github.com/clojars/clojars-web/
 - [[https://github.com/clojars/clojars-web/issues/786][login with GitLab]]
 - [[https://github.com/clojars/clojars-web/issues/787][auto-verifying GitLab-based groups]]
 
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 19 groups]] this month.
+
 * April 2021
   :PROPERTIES:
   :CUSTOM_ID: apr-2021
@@ -60,3 +62,18 @@ In April we released the [[https://github.com/clojars/clojars-web/projects/1][ve
 - [[https://github.com/clojars/clojars-web/issues/792][documentation updates]]
 - updates to [[https://github.com/clj-commons/pomegranate/pull/128][pomegranate]] and [[https://github.com/technomancy/leiningen/pull/2736][leiningen]] to fix display of status
   messages from Clojars deploys
+
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 25 groups]] this month.
+
+* May 2021
+  :PROPERTIES:
+  :CUSTOM_ID: may-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/f9bdc3ce08c4debe560c4d8d5a037f2b072eed93...6360c2accff416b1c2180504aba0b0ccd2dddaa5][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/8208ecac68018adcbc9219da9660b0279d947693...e44107ce1e0cd04a3c80ffdf5022e1ddc95a35df][~clojars-server-config~]]
+
+Just a minor fix and some maintenance this month. 
+
+- [[https://github.com/clojars/clojars-web/commit/d85469c5bcc6e446afca06a0c3ae00a73c0e556d][fix to ensure domain names created based on vcs service username is lowercase]]
+
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 32 groups]] this month.
