@@ -77,3 +77,16 @@ Just a minor fix and some maintenance this month.
 - [[https://github.com/clojars/clojars-web/commit/d85469c5bcc6e446afca06a0c3ae00a73c0e556d][fix to ensure domain names created based on vcs service username is lowercase]]
 
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 32 groups]] this month.
+* June 2021
+  :PROPERTIES:
+  :CUSTOM_ID: june-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/6360c2accff416b1c2180504aba0b0ccd2dddaa5...0b130a220c53d2cc1c271fc941bc4a2d3be46515][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/e44107ce1e0cd04a3c80ffdf5022e1ddc95a35df...4147972b32f19388ffcbf5692fe461d0aa08523d][~clojars-server-config~]]
+
+- [[https://github.com/clojars/clojars-server-config/commit/182bdc3df51eec0301c3d65322cb10c158d39f8d][Migrated to larger AWS RDS Postgres instance size]] to address connection timeouts
+- Wrote [[https://github.com/clojars/clojars-web/blob/main/src/clojars/admin.clj#L133][a tool]] to ease group verification at the repl
+- Rewrote the [[https://github.com/clojars/clojars-web/blob/main/SYSADMIN.md][SYSADMIN guide]] to match current architecture
+
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 21 groups]] this month.
+
