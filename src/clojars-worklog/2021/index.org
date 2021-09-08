@@ -77,6 +77,7 @@ Just a minor fix and some maintenance this month.
 - [[https://github.com/clojars/clojars-web/commit/d85469c5bcc6e446afca06a0c3ae00a73c0e556d][fix to ensure domain names created based on vcs service username is lowercase]]
 
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 32 groups]] this month.
+
 * June 2021
   :PROPERTIES:
   :CUSTOM_ID: june-2021
@@ -90,3 +91,23 @@ I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclose
 
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 21 groups]] this month.
 
+
+* July 2021
+  :PROPERTIES:
+  :CUSTOM_ID: july-2021
+  :END:
+
+Vacation!
+
+* August 2021
+  :PROPERTIES:
+  :CUSTOM_ID: august-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/752d813...e23b745][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/2c6fe50...9cc5551][~clojars-server-config~]]
+
+- [[https://github.com/clojars/clojars-web/commit/7cac4f1de82a161494e486ac0c34cc764dffe3d2][Allowed creation of a deploy token scoped to a group before the group has any artifacts]]
+- [[https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e][Limited password length]] to prevent potential denial of service
+- [[https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e][Updated rate-limiting]] to be more aggressive on the forgot-password endpoint
+  
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 14 groups]] this month.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-07 Wed 10:01 -->
+<!-- 2021-09-08 Wed 06:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Clojars Worklog - 2021</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -182,50 +195,26 @@
 </style>
 <link rel="stylesheet" type="text/css" href="../worklog-style.css" />
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -242,12 +231,14 @@ for the JavaScript code in this tag.
 <li><a href="#apr-2021">April 2021</a></li>
 <li><a href="#may-2021">May 2021</a></li>
 <li><a href="#june-2021">June 2021</a></li>
+<li><a href="#july-2021">July 2021</a></li>
+<li><a href="#august-2021">August 2021</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org95e3f97" class="outline-2">
-<h2 id="intro"><a id="org95e3f97"></a>Intro</h2>
+<div id="outline-container-intro" class="outline-2">
+<h2 id="intro">Intro</h2>
 <div class="outline-text-2" id="text-intro">
 <p>
 This worklog covers work performed on <a href="https://clojars.org">Clojars</a> under a contract from
@@ -257,8 +248,8 @@ improvements and general maintenance.
 </div>
 </div>
 
-<div id="outline-container-org7e0afcb" class="outline-2">
-<h2 id="jan-2021"><a id="org7e0afcb"></a>January 2021</h2>
+<div id="outline-container-jan-2021" class="outline-2">
+<h2 id="jan-2021">January 2021</h2>
 <div class="outline-text-2" id="text-jan-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-server-config/compare/18c2ee360e93e25c804a9ef0fa458e07c3022b70...8b53cbf011f906dfb62a60ea75ff21468a3396fe"><code>clojars-server-config</code></a>
@@ -271,8 +262,8 @@ issues with maven index creation.
 </div>
 </div>
 
-<div id="outline-container-org91a7cf8" class="outline-2">
-<h2 id="feb-2021"><a id="org91a7cf8"></a>February 2021</h2>
+<div id="outline-container-feb-2021" class="outline-2">
+<h2 id="feb-2021">February 2021</h2>
 <div class="outline-text-2" id="text-feb-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/de99524...956175e"><code>clojars-web</code></a>
@@ -285,8 +276,8 @@ by requiring groups to be verified and <a href="https://github.com/clojars/cloja
 </div>
 </div>
 
-<div id="outline-container-org4a9039b" class="outline-2">
-<h2 id="mar-2021"><a id="org4a9039b"></a>March 2021</h2>
+<div id="outline-container-mar-2021" class="outline-2">
+<h2 id="mar-2021">March 2021</h2>
 <div class="outline-text-2" id="text-mar-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/956175...1885988ea69dd69193c13387ed413902760a2ca8"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/8b53cbf011f906dfb62a60ea75ff21468a3396fe...0d6fe9b4594c291fdfc2e0413b730d43cbd2ccc3"><code>clojars-server-config</code></a>
@@ -302,13 +293,13 @@ The work this month moved us closer to <a href="https://github.com/clojars/cloja
 </ul>
 
 <p>
-I <a href="https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed">verified 19 groups</a> this month.
+I <a href="https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed">verified 19 groups</a> this month.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd33a5b3" class="outline-2">
-<h2 id="apr-2021"><a id="orgd33a5b3"></a>April 2021</h2>
+<div id="outline-container-apr-2021" class="outline-2">
+<h2 id="apr-2021">April 2021</h2>
 <div class="outline-text-2" id="text-apr-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/1885988ea69dd69193c13387ed413902760a2ca8...f9bdc3ce08c4debe560c4d8d5a037f2b072eed93"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/0d6fe9b4594c291fdfc2e0413b730d43cbd2ccc3...8208ecac68018adcbc9219da9660b0279d947693"><code>clojars-server-config</code></a>
@@ -328,13 +319,13 @@ messages from Clojars deploys</li>
 </ul>
 
 <p>
-I <a href="https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed">verified 25 groups</a> this month.
+I <a href="https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed">verified 25 groups</a> this month.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5f25b69" class="outline-2">
-<h2 id="may-2021"><a id="org5f25b69"></a>May 2021</h2>
+<div id="outline-container-may-2021" class="outline-2">
+<h2 id="may-2021">May 2021</h2>
 <div class="outline-text-2" id="text-may-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/f9bdc3ce08c4debe560c4d8d5a037f2b072eed93...6360c2accff416b1c2180504aba0b0ccd2dddaa5"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/8208ecac68018adcbc9219da9660b0279d947693...e44107ce1e0cd04a3c80ffdf5022e1ddc95a35df"><code>clojars-server-config</code></a>
@@ -349,12 +340,13 @@ Just a minor fix and some maintenance this month.
 </ul>
 
 <p>
-I <a href="https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed">verified 32 groups</a> this month.
+I <a href="https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed">verified 32 groups</a> this month.
 </p>
 </div>
 </div>
-<div id="outline-container-org7a15de0" class="outline-2">
-<h2 id="june-2021"><a id="org7a15de0"></a>June 2021</h2>
+
+<div id="outline-container-june-2021" class="outline-2">
+<h2 id="june-2021">June 2021</h2>
 <div class="outline-text-2" id="text-june-2021">
 <p>
 <b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/6360c2accff416b1c2180504aba0b0ccd2dddaa5...0b130a220c53d2cc1c271fc941bc4a2d3be46515"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/e44107ce1e0cd04a3c80ffdf5022e1ddc95a35df...4147972b32f19388ffcbf5692fe461d0aa08523d"><code>clojars-server-config</code></a>
@@ -367,15 +359,44 @@ I <a href="https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Acl
 </ul>
 
 <p>
-I <a href="https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed">verified 21 groups</a> this month.
+I <a href="https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed">verified 21 groups</a> this month.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-july-2021" class="outline-2">
+<h2 id="july-2021">July 2021</h2>
+<div class="outline-text-2" id="text-july-2021">
+<p>
+Vacation!
+</p>
+</div>
+</div>
+
+<div id="outline-container-august-2021" class="outline-2">
+<h2 id="august-2021">August 2021</h2>
+<div class="outline-text-2" id="text-august-2021">
+<p>
+<b>Changelogs:</b> <a href="https://github.com/clojars/clojars-web/compare/752d813...e23b745"><code>clojars-web</code></a>, <a href="https://github.com/clojars/clojars-server-config/compare/2c6fe50...9cc5551"><code>clojars-server-config</code></a>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/7cac4f1de82a161494e486ac0c34cc764dffe3d2">Allowed creation of a deploy token scoped to a group before the group has any artifacts</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e">Limited password length</a> to prevent potential denial of service</li>
+<li><a href="https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e">Updated rate-limiting</a> to be more aggressive on the forgot-password endpoint</li>
+</ul>
+
+<p>
+I <a href="https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed">verified 14 groups</a> this month.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2021-07-07 Wed 10:01</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-09-08 Wed 06:28</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
