@@ -108,6 +108,6 @@ Vacation!
 
 - [[https://github.com/clojars/clojars-web/commit/7cac4f1de82a161494e486ac0c34cc764dffe3d2][Allowed creation of a deploy token scoped to a group before the group has any artifacts]]
 - [[https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e][Limited password length]] to prevent potential denial of service
-- [[https://github.com/clojars/clojars-web/commit/a5388611bfaffc228207260f0dd05b2b8ed3c66e][Updated rate-limiting]] to be more aggressive on the forgot-password endpoint
+- [[https://github.com/clojars/clojars-server-config/commit/e7995e32076fc2e3c6ffc57148c1ccbe74970e7b][Updated rate-limiting]] to be more aggressive on the forgot-password endpoint
   
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 14 groups]] this month.
