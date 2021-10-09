@@ -111,3 +111,16 @@ Vacation!
 - [[https://github.com/clojars/clojars-server-config/commit/e7995e32076fc2e3c6ffc57148c1ccbe74970e7b][Updated rate-limiting]] to be more aggressive on the forgot-password endpoint
   
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 14 groups]] this month.
+
+* September 2021
+  :PROPERTIES:
+  :CUSTOM_ID: september-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/e23b745...c4e6b2069b659cb55f86b3abff10aa0061f06a96][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/9cc5551...a79d49aa70fd2a0191adbe8beefa1af191b087dd][~clojars-server-config~]]
+
+- Updated git provider linking to [[https://github.com/clojars/clojars-web/commit/b0a4129d78b5bd52611bd65f4e44e42f24e05b2c][support GitLab]], and to link to the [[https://github.com/clojars/clojars-web/commit/34cefee752ca299bf86abe80aa833c2a450744de][tree instead of the commit]]
+- [[https://github.com/clojars/clojars-web/commit/10e2acd7ae81575321252470e43eabf1513ed354][Removed verified badge when viewing groups not owned by you]]
+- [[https://github.com/clojars/clojars-server-config/commit/fccae38abc234f5a8bc25c0f4a0c2758debaff85][Relaxed over-aggressive forgot-password rate-limiting]]
+  
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 14 groups]] this month.
