@@ -124,3 +124,16 @@ I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclose
 - [[https://github.com/clojars/clojars-server-config/commit/fccae38abc234f5a8bc25c0f4a0c2758debaff85][Relaxed over-aggressive forgot-password rate-limiting]]
   
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 14 groups]] this month.
+
+* October 2021
+  :PROPERTIES:
+  :CUSTOM_ID: october-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/c4e6b2069b659cb55f86b3abff10aa0061f06a96...4e739b1c8bb9911d146cad6410ab9d55fb588d97][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/a79d49aa70fd2a0191adbe8beefa1af191b087dd...7d18c4a42e72a1803258546b17097e6bb99175f2][~clojars-server-config~]]
+
+- Added [[https://github.com/clojars/clojars-web/issues/812][audit logging when group members are added or removed]]
+- [[https://github.com/clojars/clojars-server-config/commit/4dbcfff9882a8d521030b71134ba267fa4407833][Removed 30-day limit on audit information]] (we will keep it all now)
+- Added [[https://github.com/clojars/clojars-web/issues/814][display of lib dependents to jar page]]
+  
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 13 groups]] this month.
