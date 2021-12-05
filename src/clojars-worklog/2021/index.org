@@ -137,3 +137,12 @@ I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclose
 - Added [[https://github.com/clojars/clojars-web/issues/814][display of lib dependents to jar page]]
   
 I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 13 groups]] this month.
+
+* November 2021
+  :PROPERTIES:
+  :CUSTOM_ID: november-2021
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/c4e6b2069b659cb55f86b3abff10aa0061f06a96...4e739b1c8bb9911d146cad6410ab9d55fb588d97][~clojars-server-config~]]
+
+I [[https://github.com/clojars/administration/issues?q=is%253Aissue+is%253Aclosed][verified 11 groups]] this month.
