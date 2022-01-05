@@ -85,14 +85,14 @@ table {
 */
 
 #table-of-contents {
-    width: 15em;
+    width: 10em;
     float: left;
     overflow: auto;
 }
 
 /* #main { */
 div.outline-2 {
-    width: 52em;
+    width: 45em;
     float: right;
     /* The lines below are useful if the "main" div isn't available and
            div.outline-2 has to be used. */
