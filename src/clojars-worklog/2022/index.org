@@ -1,0 +1,38 @@
+#+TITLE: Clojars Worklog - 2022
+#+AUTHOR: Toby Crawley
+#+EMAIL: toby@tcrawley.org
+#+OPTIONS:   num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worklog-style.css" />
+
+* Intro
+  :PROPERTIES:
+  :CUSTOM_ID: intro
+  :END:
+
+This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
+the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers security
+improvements and general maintenance.
+
+* January 2022
+  :PROPERTIES:
+  :CUSTOM_ID: jan-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/4be45fbdf9cce9f52c66ee3cc5a9607b1266d035...192d460ac57479a90857f47aabd55283a1a32760][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/4fc13dbbdc279115757ad3f08c1caab0232a5134...ccfdb81e41516df23be0586c7939a02b5fa76c20][~clojars-server-config~]]
+
+Rewrote search indexing to upgrade from Lucene 2 to 8 and address [[https://github.com/clojars/clojars-web/issues/721][#721]], [[https://github.com/clojars/clojars-web/issues/806][#806]]
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][17 groups]].
+
+
+* February 2022
+  :PROPERTIES:
+  :CUSTOM_ID: feb-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/192d460ac57479a90857f47aabd55283a1a32760...2d4c9c39546502e74b1211ff792a1d9882e5023b][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/ccfdb81e41516df23be0586c7939a02b5fa76c20...7b5fb5351348959d05117b11f919038049b1e041][~clojars-server-config~]]
+
++ Fixed issues with the GitHub token discovery reporting when the request was invalid
++ Implemented [[https://github.com/clojars/clojars-web/issues/811][Single-Use & Expiring deploy tokens]]
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][15 groups]].
