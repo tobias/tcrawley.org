@@ -36,3 +36,16 @@ I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3A
 + Implemented [[https://github.com/clojars/clojars-web/issues/811][Single-Use & Expiring deploy tokens]]
 
 I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][15 groups]].
+
+* March 2022
+  :PROPERTIES:
+  :CUSTOM_ID: mar-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/2d4c9c39546502e74b1211ff792a1d9882e5023b...0848ec917871162dfe714ec0840b331619963403][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/7b5fb5351348959d05117b11f919038049b1e041...0ce106f743c0eea119b38a42124b420eb32242a3][~clojars-server-config~]]
+
++ [[https://github.com/clojars/clojars-web/pull/820][Added email notification to all group members when deploy occurs]]
++ [[https://github.com/clojars/clojars-web/commit/09454f7750bb5a402fda169282e52dba8d21de70][Fixed bug]] where we were sharing a non-reentrant ~SimpleDateFormat~ instance across threads
++ Group verification tooling improvements
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][14 groups]].
