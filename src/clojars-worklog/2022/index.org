@@ -49,3 +49,18 @@ I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3A
 + Group verification tooling improvements
 
 I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][14 groups]].
+
+* April 2022
+  :PROPERTIES:
+  :CUSTOM_ID: apr-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/0848ec917871162dfe714ec0840b331619963403...04bd07f1d82fa7b3500feadd763262c499f876c5][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0ce106f743c0eea119b38a42124b420eb32242a3...9141cb7beebc3590f1b0fb94be10e5f92706ca99][~clojars-server-config~]]
+
++ [[https://github.com/clojars/clojars-server-config/commit/9141cb7beebc3590f1b0fb94be10e5f92706ca99][Fixed size upload overrides in nginx]]
++ [[https://github.com/clojars/clojars-web/commit/7c653935be1e106ca302fa732921715a961183ce][Allowed using email address as username when deploying]]
++ [[https://github.com/clojars/clojars-web/commit/b6c0fd3ae36b7dc43643521b17da3373f295bb59][Improved]] token page [[https://github.com/clojars/clojars-web/commit/cbce4e1a879438be905d50e35af32914fc8bdfab][display]] & added [[https://github.com/clojars/clojars-web/commit/0442818aaa186868ea8c4fde5100470988a73646][single-use token auto-naming]]
++ [[https://github.com/clojars/clojars-web/pull/825/commits][Significant changes]] to set security headers that control browser security behavior. We now get an [[https://securityheaders.com/?q=https%3A%2F%2Fclojars.org&followRedirects=on][A+ from Security Headers]]
++ [[https://github.com/clojars/clojars-web/commit/7af70a698d45bb711a28952bc704353f7a4c08eb][Replaced git.io links]]
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][11 groups]].
