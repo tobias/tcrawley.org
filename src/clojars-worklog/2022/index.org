@@ -64,3 +64,15 @@ I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3A
 + [[https://github.com/clojars/clojars-web/commit/7af70a698d45bb711a28952bc704353f7a4c08eb][Replaced git.io links]]
 
 I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][11 groups]].
+
+* May 2022
+  :PROPERTIES:
+  :CUSTOM_ID: may-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/04bd07f1d82fa7b3500feadd763262c499f876c5...378624ead2f268915e889dd93a92b3260513abb8][~clojars-web~]], [[https://github.com/clojars/clojars-server-config/compare/0ce106f743c0eea119b38a42124b420eb32242a3...9141cb7beebc3590f1b0fb94be10e5f92706ca99][~clojars-server-config~]]
+
++ Added [[https://github.com/clojars/clojars-web/commit/a1651e91c71355f0f76ac457be8c859e2da3c936][sending emails to users when their email address or password changes]]
++ [[https://github.com/clojars/clojars-server-config/commit/6dd2f8df49eb5e9307c07afdd920fb05869cf3cd][Increased server volume size]] and [[https://github.com/clojars/clojars-server-config/commit/f797c7bbc272d4d558d38d96c382a39373e2b8a7][reduced log retention window]] to prevent running out of disk space
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][11 groups]].
