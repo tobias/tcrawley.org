@@ -76,3 +76,27 @@ I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3A
 + [[https://github.com/clojars/clojars-server-config/commit/6dd2f8df49eb5e9307c07afdd920fb05869cf3cd][Increased server volume size]] and [[https://github.com/clojars/clojars-server-config/commit/f797c7bbc272d4d558d38d96c382a39373e2b8a7][reduced log retention window]] to prevent running out of disk space
 
 I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][11 groups]].
+
+* June 2022
+  :PROPERTIES:
+  :CUSTOM_ID: jun-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/378624ead2f268915e889dd93a92b3260513abb8...842cbc2bba901ca19bfb961947ccc7f00f5ed3a2][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/771aa05c54dbf808d97491c4e946df2d3d0d2892...d6106a88787a8be9b39f63c87c1fdb8115cd4a87][~clojars-server-config~]]
+
++ Security/CVE fixes/improvements
++ Send emails on [[https://github.com/clojars/clojars-web/pull/840][group membership change]]
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][18 groups]].
+
+* July 2022
+  :PROPERTIES:
+  :CUSTOM_ID: jul-2022
+  :END:
+
+*Changelogs:* [[https://github.com/clojars/clojars-web/compare/842cbc2bba901ca19bfb961947ccc7f00f5ed3a2...9bcfeba74ecd1b876242232ef735e91d6989b444][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/d6106a88787a8be9b39f63c87c1fdb8115cd4a87...2a2cb3319d9f9a4eb8cf7aa0f4e4d649192a6c2e][~clojars-server-config~]]
+
++ A quiet month of vacation
+
+I verified [[https://github.com/clojars/administration/issues?q=is%3Aissue+is%3Aclosed][4 groups]].
+
