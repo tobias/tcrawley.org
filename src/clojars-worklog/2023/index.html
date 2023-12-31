@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-29 Tue 20:11 -->
+<!-- 2023-11-01 Wed 07:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Clojars Worklog - 2023</title>
@@ -203,11 +203,12 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#intro">Intro</a></li>
+<li><a href="#oct-2023">October 2023</a></li>
+<li><a href="#sept-2023">September 2023</a></li>
 <li><a href="#aug-2023">August 2023</a></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-intro" class="outline-2">
 <h2 id="intro">Intro</h2>
 <div class="outline-text-2" id="text-intro">
@@ -217,7 +218,44 @@ the <a href="https://www.clojuriststogether.org/">Clojurists Together Foundation
 </p>
 </div>
 </div>
+<div id="outline-container-oct-2023" class="outline-2">
+<h2 id="oct-2023">October 2023</h2>
+<div class="outline-text-2" id="text-oct-2023">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/3dfeb61890e1f61c54e334dabe5c5e5bcccaeb67...d92cf1eb2f78e13894d37eb8e4b5fc070d9e00e0"><code>clojars-web</code></a>
+</p>
 
+<p>
+The work this month was modernization: we moved away from <a href="https://github.com/krisajenkins/yesql">yesql</a> in favor of
+<a href="https://github.com/seancorfield/honeysql">honeysql</a>, and to <a href="https://github.com/seancorfield/next-jdbc">next.jdbc</a> from <a href="https://github.com/clojure/java.jdbc">clojure.java.jdbc</a>:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/2d09602722df78ef40e30f5d9bcf01df011af27e">Convert from yesql to honeysql for SQL queries</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/1116f6c6b3a5cc7b484fdb24175127f43f232d83">Convert from java.jdbc to next.jdbc</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/07603ad74ea21f722ef7184f200b04ff6e75b30e">Don&rsquo;t send password change email when just profile email address changed</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/f1b251f4e788798a61cdb0d72023a00f7525945f">Adjust dependencies to address CVEs</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sept-2023" class="outline-2">
+<h2 id="sept-2023">September 2023</h2>
+<div class="outline-text-2" id="text-sept-2023">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/0a5eb2175e7b417fc9e64bcb6fb87f6d15cbddbc...3dfeb61890e1f61c54e334dabe5c5e5bcccaeb67"><code>clojars-web</code></a>
+</p>
+
+<p>
+Most of September was vacation, but I did make a few improvements towards the
+end of the month:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/29b5d25cdc8ede87a35967691110f84a4a8c23d1">Prevent memory leak from in-memory session store</a> This was the source of intermittent OOMs for years, and I finally tracked it down.</li>
+<li><a href="https://github.com/clojars/clojars-web/pull/874">Require a license in the POM for new projects</a></li>
+</ul>
+</div>
+</div>
 <div id="outline-container-aug-2023" class="outline-2">
 <h2 id="aug-2023">August 2023</h2>
 <div class="outline-text-2" id="text-aug-2023">
@@ -254,7 +292,7 @@ The <a href="https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org">CHA
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2023-08-29 Tue 20:11</p>
+<p class="date">Created: 2023-11-01 Wed 07:48</p>
 </div>
 </body>
 </html>

@@ -12,6 +12,46 @@
 This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
 the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers general maintenance.
 
+* November 2023
+  :PROPERTIES:
+  :CUSTOM_ID: dec-2023
+  :END:
+
+
+* November 2023
+  :PROPERTIES:
+  :CUSTOM_ID: nov-2023
+  :END:
+
+* October 2023
+  :PROPERTIES:
+  :CUSTOM_ID: oct-2023
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/3dfeb61890e1f61c54e334dabe5c5e5bcccaeb67...d92cf1eb2f78e13894d37eb8e4b5fc070d9e00e0][~clojars-web~]]
+
+The work this month was modernization: we moved away from [[https://github.com/krisajenkins/yesql][yesql]] in favor of
+[[https://github.com/seancorfield/honeysql][honeysql]], and to [[https://github.com/seancorfield/next-jdbc][next.jdbc]] from [[https://github.com/clojure/java.jdbc][clojure.java.jdbc]]:
+
++ [[https://github.com/clojars/clojars-web/commit/2d09602722df78ef40e30f5d9bcf01df011af27e][Convert from yesql to honeysql for SQL queries]]
++ [[https://github.com/clojars/clojars-web/commit/1116f6c6b3a5cc7b484fdb24175127f43f232d83][Convert from java.jdbc to next.jdbc]]
++ [[https://github.com/clojars/clojars-web/commit/07603ad74ea21f722ef7184f200b04ff6e75b30e][Don't send password change email when just profile email address changed]]
++ [[https://github.com/clojars/clojars-web/commit/f1b251f4e788798a61cdb0d72023a00f7525945f][Adjust dependencies to address CVEs]]
+
+* September 2023
+  :PROPERTIES:
+  :CUSTOM_ID: sept-2023
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/0a5eb2175e7b417fc9e64bcb6fb87f6d15cbddbc...3dfeb61890e1f61c54e334dabe5c5e5bcccaeb67][~clojars-web~]]
+
+Most of September was vacation, but I did make a few improvements towards the
+end of the month:
+
++ [[https://github.com/clojars/clojars-web/commit/29b5d25cdc8ede87a35967691110f84a4a8c23d1][Prevent memory leak from in-memory session store]] This was the source of intermittent OOMs for years, and I finally tracked it down.
++ [[https://github.com/clojars/clojars-web/pull/874][Require a license in the POM for new projects]]
+
+
 * August 2023
   :PROPERTIES:
   :CUSTOM_ID: aug-2023
