@@ -12,12 +12,34 @@
 This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
 the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers general maintenance.
 
+* June 2024
+  :PROPERTIES:
+  :CUSTOM_ID: jun-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/a59efb6128f2ae355df359a57bf06d6b8b0289cc...02a10234c5b2e78a3b07ab20f9062fb6f24b833b][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/5cb87635b43bf3febe3187940e53ce0ecbf918fd...59cec6c2924811f07d5e231923e642f6306fee05][~infrastructure~]]
+
++ [[https://github.com/clojars/clojars-web/commit/4acf752f11adf2a32041f8788852771c5eb909fa][Upgrade nippy to address CVE-2024-36124]]
++ [[https://github.com/clojars/infrastructure/commit/02f51fd94057680ddb4e205e73ba2d8d82547b57][Upgrade LoadBalancer SSL policy]]
++ [[https://github.com/clojars/clojars-web/commit/053cb838677011f7cc39ad3a577b01edc279ccf8][Clean up many typos]] (also in [[https://github.com/clojars/infrastructure/commit/59cec6c2924811f07d5e231923e642f6306fee05][infrastructure]])
+
+* May 2024
+  :PROPERTIES:
+  :CUSTOM_ID: may-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/89e33a5a60f10ccb33e59d3a418a224bcb4af0dd...a59efb6128f2ae355df359a57bf06d6b8b0289cc][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/190777d4270533d7d4316bb7f2e911cb80ee0dc1...5cb87635b43bf3febe3187940e53ce0ecbf918fd][~infrastructure~]]
+
++ [[https://github.com/clojars/infrastructure/commit/e84ca04ec2bb304212751d709c168d781cd101ae][Add wrappers for hashicorp tools to ensure consistent version usage]]
++ [[https://github.com/clojars/clojars-web/pull/882][Ensure emails are downcased; don't allow future duplicate email usage]]
++ [[https://github.com/clojars/clojars-web/pull/883][Upgrade to Jetty 11]]
+
 * April 2024
   :PROPERTIES:
   :CUSTOM_ID: apr-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3][~clojars-web~]]
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/4a109fd875b0101164c2349b31a1fa624a7f28be...89e33a5a60f10ccb33e59d3a418a224bcb4af0dd][~clojars-web~]]
 
 Mostly maintenance work this month related to error handling and tighening error boundaries.
 
