@@ -1,0 +1,65 @@
+#+TITLE: Clojars Worklog - 2024
+#+AUTHOR: Toby Crawley
+#+EMAIL: toby@tcrawley.org
+#+OPTIONS:   num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../worklog-style.css" />
+
+* Intro
+  :PROPERTIES:
+  :CUSTOM_ID: intro
+  :END:
+
+This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
+the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers general maintenance.
+
+* April 2024
+  :PROPERTIES:
+  :CUSTOM_ID: apr-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3][~clojars-web~]]
+
+Mostly maintenance work this month related to error handling and tighening error boundaries.
+
++ [[https://github.com/clojars/clojars-web/commit/50c6cc28261a6ee8fda4d476f8c004004841d961][Tighten search page error handling]]
++ [[https://github.com/clojars/clojars-web/commit/32867445a39a6a744fbadd60e9ce1d4f44110964][Address CVEs with bouncycastle]]
++ [[https://github.com/clojars/clojars-web/commit/c061d2bd6df6314a200a30c82bb04733a863019c][Remove usage of clj-time in favor of java.time]]
++ [[https://github.com/clojars/clojars-web/commit/d3a7cff8c40c4bc8f462e155548027f8d4dac2f5][Remove /error route]]
++ [[https://github.com/clojars/clojars-web/commit/6824d96c945d697022b67990f809364128930b29][Fix logback to actually roll logs]]
++ [[https://github.com/clojars/clojars-web/commit/a26e1ee9eb5cee9e4ef6ac6f9ef6164c37c0e40e][Reject non-flat http params in an attempt to reduce errors from fuzzing]]
++ [[https://github.com/clojars/clojars-web/commit/89e33a5a60f10ccb33e59d3a418a224bcb4af0dd][Return invalid params response as json]]
+
+* March 2024
+  :PROPERTIES:
+  :CUSTOM_ID: mar-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/0b131ebcaf21b33cb7106026726d571e4fc47d1c...4a109fd875b0101164c2349b31a1fa624a7f28be][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/4d5993b0860857276a13874ec42e89f238c30188...190777d4270533d7d4316bb7f2e911cb80ee0dc1][~infrastructure~]]
+
++ [[https://github.com/clojars/infrastructure/commit/a50476c3073a7b5269a27cac8ce3b5085433fe22][Upgrade from Amazon Linux 2 to Amazon Linux 2023]]
++ [[https://github.com/clojars/clojars-web/commit/8160f6320156ac890b72aec5d3f97263a45bcd60][Updates to error handling and reporting to allow more to be reported]]
++ Upgrades to address CVEs
+
+* February 2024
+  :PROPERTIES:
+  :CUSTOM_ID: feb-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3...0b131ebcaf21b33cb7106026726d571e4fc47d1c][~clojars-web~]]
+
+This month was a smattering of small changes/fixes:
+
++ [[https://github.com/clojars/clojars-web/commit/bb01ae647468e8591d2de642d1d11ad7e8be18f2][Display username on all pref/admin pages]]
++ [[https://github.com/clojars/clojars-web/commit/dbe8769339c6470f9a094e1017e695bc85e27a3b][Use a Thread for SQS receive loop to allow UCE to work]]
++ [[https://github.com/clojars/clojars-web/commit/60c064f9612f98336aebf6bda2845d112ff2827c][Report validity to GitHub on secret scanning requests]]
++ [[https://github.com/clojars/clojars-web/commit/1655377c40927316c15cfd225dda5470cb801efb][Add admin tooling to soft-delete users]]
++ [[https://github.com/clojars/clojars-web/commit/d3153018dda214f00569bc8276c9b9dbf28a46c8][Upgrade postgresql driver to address CVE-2024-1597]]
+
+* January 2024
+  :PROPERTIES:
+  :CUSTOM_ID: jan-2024
+  :END:
+
+*Commit Logs:* [[https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3][~clojars-web~]], [[https://github.com/clojars/infrastructure/commit/4d5993b0860857276a13874ec42e89f238c30188][~infrastructure~]]
+
+I upgraded the PostgreSQL database from v12.1 to v15.5.

@@ -3,12 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-04 Sat 09:19 -->
+<!-- 2024-05-01 Wed 06:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Clojars Worklogs</title>
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<title>Clojars Worklog - 2024</title>
+<meta name="author" content="Toby Crawley" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -29,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -38,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -159,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -175,71 +191,106 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="worklog-style.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
+<link rel="stylesheet" type="text/css" href="../worklog-style.css" />
 </head>
 <body>
-<div id="content">
-<h1 class="title">Clojars Worklogs</h1>
+<div id="content" class="content">
+<h1 class="title">Clojars Worklog - 2024</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-  <li><a href="2020/index.html">Work sponsored by the Software Freedom Conservancy &amp; the Clojurists Together Foundation in 2020</a></li>
-  <li><a href="2021/index.html">Work sponsored by the Clojurists Together Foundation in 2021</a></li>
-  <li><a href="2022/index.html">Work sponsored by the Clojurists Together Foundation in 2022</a></li>
-  <li><a href="2023/index.html">Work sponsored by the Clojurists Together Foundation in 2023</a></li>
-  <li><a href="2024/index.html">Work sponsored by the Clojurists Together Foundation in 2024</a></li>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#apr-2024">April 2024</a></li>
+<li><a href="#mar-2024">March 2024</a></li>
+<li><a href="#feb-2024">February 2024</a></li>
+<li><a href="#jan-2024">January 2024</a></li>
 </ul>
+</div>
+</div>
+<div id="outline-container-intro" class="outline-2">
+<h2 id="intro">Intro</h2>
+<div class="outline-text-2" id="text-intro">
+<p>
+This worklog covers work performed on <a href="https://clojars.org">Clojars</a> under a contract from
+the <a href="https://www.clojuriststogether.org/">Clojurists Together Foundation</a>. The contract covers general maintenance.
+</p>
+</div>
+</div>
+<div id="outline-container-apr-2024" class="outline-2">
+<h2 id="apr-2024">April 2024</h2>
+<div class="outline-text-2" id="text-apr-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3"><code>clojars-web</code></a>
+</p>
+
+<p>
+Mostly maintenance work this month related to error handling and tighening error boundaries.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/50c6cc28261a6ee8fda4d476f8c004004841d961">Tighten search page error handling</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/32867445a39a6a744fbadd60e9ce1d4f44110964">Address CVEs with bouncycastle</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/c061d2bd6df6314a200a30c82bb04733a863019c">Remove usage of clj-time in favor of java.time</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/d3a7cff8c40c4bc8f462e155548027f8d4dac2f5">Remove /error route</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/6824d96c945d697022b67990f809364128930b29">Fix logback to actually roll logs</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/a26e1ee9eb5cee9e4ef6ac6f9ef6164c37c0e40e">Reject non-flat http params in an attempt to reduce errors from fuzzing</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/89e33a5a60f10ccb33e59d3a418a224bcb4af0dd">Return invalid params response as json</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-mar-2024" class="outline-2">
+<h2 id="mar-2024">March 2024</h2>
+<div class="outline-text-2" id="text-mar-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/0b131ebcaf21b33cb7106026726d571e4fc47d1c...4a109fd875b0101164c2349b31a1fa624a7f28be"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/compare/4d5993b0860857276a13874ec42e89f238c30188...190777d4270533d7d4316bb7f2e911cb80ee0dc1"><code>infrastructure</code></a>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/infrastructure/commit/a50476c3073a7b5269a27cac8ce3b5085433fe22">Upgrade from Amazon Linux 2 to Amazon Linux 2023</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/8160f6320156ac890b72aec5d3f97263a45bcd60">Updates to error handling and reporting to allow more to be reported</a></li>
+<li>Upgrades to address CVEs</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-feb-2024" class="outline-2">
+<h2 id="feb-2024">February 2024</h2>
+<div class="outline-text-2" id="text-feb-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3...0b131ebcaf21b33cb7106026726d571e4fc47d1c"><code>clojars-web</code></a>
+</p>
+
+<p>
+This month was a smattering of small changes/fixes:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/bb01ae647468e8591d2de642d1d11ad7e8be18f2">Display username on all pref/admin pages</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/dbe8769339c6470f9a094e1017e695bc85e27a3b">Use a Thread for SQS receive loop to allow UCE to work</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/60c064f9612f98336aebf6bda2845d112ff2827c">Report validity to GitHub on secret scanning requests</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/1655377c40927316c15cfd225dda5470cb801efb">Add admin tooling to soft-delete users</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/d3153018dda214f00569bc8276c9b9dbf28a46c8">Upgrade postgresql driver to address CVE-2024-1597</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-jan-2024" class="outline-2">
+<h2 id="jan-2024">January 2024</h2>
+<div class="outline-text-2" id="text-jan-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/commit/4d5993b0860857276a13874ec42e89f238c30188"><code>infrastructure</code></a>
+</p>
+
+<p>
+I upgraded the PostgreSQL database from v12.1 to v15.5.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2021-02-06</p>
+<p class="date">Created: 2024-05-01 Wed 06:50</p>
 </div>
 </body>
 </html>
