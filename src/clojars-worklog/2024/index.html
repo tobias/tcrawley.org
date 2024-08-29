@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-06-30 Sun 09:07 -->
+<!-- 2024-08-29 Thu 07:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Clojars Worklog - 2024</title>
 <meta name="author" content="Toby Crawley" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -203,6 +203,8 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#intro">Intro</a></li>
+<li><a href="#aug-2024">August 2024</a></li>
+<li><a href="#jul-2024">July 2024</a></li>
 <li><a href="#jun-2024">June 2024</a></li>
 <li><a href="#may-2024">May 2024</a></li>
 <li><a href="#apr-2024">April 2024</a></li>
@@ -221,11 +223,43 @@ the <a href="https://www.clojuriststogether.org/">Clojurists Together Foundation
 </p>
 </div>
 </div>
+<div id="outline-container-aug-2024" class="outline-2">
+<h2 id="aug-2024">August 2024</h2>
+<div class="outline-text-2" id="text-aug-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/0d6640ae647f8b075e74c1b3d20128dccbadebc5...fc00a38a5814dcea44522f91750e981df8893f7e"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/compare/c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14...6cf9c100e38408016cd979f1611602523766200e"><code>infrastructure</code></a>
+</p>
+
+<ul class="org-ul">
+<li>Bug fix: <a href="https://github.com/clojars/clojars-web/commit/978eeab87928772c158fa454aeb9c8c1e630b8d2">Ensure jetty patch to send status message is always applied</a></li>
+<li>Bug fix: <a href="https://github.com/clojars/clojars-web/commit/2df51fb53ed39fdd75e1637828b786015edce314">Properly rotate log files</a>
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/ac9e6733a261ebb18d305379ef95f34d42fe3ef5">Upgrade to Clojure 1.12.0-rc1</a></li>
+<li><a href="https://github.com/clojars/clojars-web/commit/78a7408d3b1f614c477b047a17c5938aa60687b8">Upgrade to clojure 1.12.0-rc2</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-jul-2024" class="outline-2">
+<h2 id="jul-2024">July 2024</h2>
+<div class="outline-text-2" id="text-jul-2024">
+<p>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/662e10febf1267b1e67c321b1aa337550f3d7a29...0d6640ae647f8b075e74c1b3d20128dccbadebc5"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/compare/59cec6c2924811f07d5e231923e642f6306fee05...c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14"><code>infrastructure</code></a>
+</p>
+
+<ul class="org-ul">
+<li>Bug fix: <a href="https://github.com/clojars/clojars-web/commit/b7d7d99bacfb863ddc9139d895640b8bf9a7b3fa">Properly delete artifacts from S3</a></li>
+<li>clj-kondo ugrade and linting cleanup</li>
+<li><a href="https://github.com/clojars/clojars-web/commit/0d6640ae647f8b075e74c1b3d20128dccbadebc5">Upgrade to Clojure 1.12.0-beta2</a></li>
+<li><a href="https://github.com/clojars/infrastructure/commit/ea1bfd2dbd3dd47fb48e849439a6072cfcb3032a">Use latest AL2023 AMI as base when building our AMI</a></li>
+</ul>
+</div>
+</div>
 <div id="outline-container-jun-2024" class="outline-2">
 <h2 id="jun-2024">June 2024</h2>
 <div class="outline-text-2" id="text-jun-2024">
 <p>
-<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/a59efb6128f2ae355df359a57bf06d6b8b0289cc...02a10234c5b2e78a3b07ab20f9062fb6f24b833b"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/compare/5cb87635b43bf3febe3187940e53ce0ecbf918fd...59cec6c2924811f07d5e231923e642f6306fee05"><code>infrastructure</code></a>
+<b>Commit Logs:</b> <a href="https://github.com/clojars/clojars-web/compare/a59efb6128f2ae355df359a57bf06d6b8b0289cc...b5fbe9ea512654dd64418967f702921e70a6397b"><code>clojars-web</code></a>, <a href="https://github.com/clojars/infrastructure/compare/5cb87635b43bf3febe3187940e53ce0ecbf918fd...59cec6c2924811f07d5e231923e642f6306fee05"><code>infrastructure</code></a>
 </p>
 
 <ul class="org-ul">
@@ -257,7 +291,7 @@ the <a href="https://www.clojuriststogether.org/">Clojurists Together Foundation
 </p>
 
 <p>
-Mostly maintenance work this month related to error handling and tighening error boundaries.
+Mostly maintenance work this month related to error handling and tightening error boundaries.
 </p>
 
 <ul class="org-ul">
@@ -320,7 +354,7 @@ I upgraded the PostgreSQL database from v12.1 to v15.5.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2024-06-30 Sun 09:07</p>
+<p class="date">Created: 2024-08-29 Thu 07:07</p>
 </div>
 </body>
 </html>
