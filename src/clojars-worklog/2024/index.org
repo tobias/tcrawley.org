@@ -20,9 +20,9 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
 *Commit Logs:* [[https://github.com/clojars/clojars-web/compare/0d6640ae647f8b075e74c1b3d20128dccbadebc5...fc00a38a5814dcea44522f91750e981df8893f7e][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14...6cf9c100e38408016cd979f1611602523766200e][~infrastructure~]]
 
 + Bug fix: [[https://github.com/clojars/clojars-web/commit/978eeab87928772c158fa454aeb9c8c1e630b8d2][Ensure jetty patch to send status message is always applied]]
-+ Bug fix: [[https://github.com/clojars/clojars-web/commit/2df51fb53ed39fdd75e1637828b786015edce314][Properly rotate log files]]
-  + [[https://github.com/clojars/clojars-web/commit/ac9e6733a261ebb18d305379ef95f34d42fe3ef5][Upgrade to Clojure 1.12.0-rc1]]
-  + [[https://github.com/clojars/clojars-web/commit/78a7408d3b1f614c477b047a17c5938aa60687b8][Upgrade to clojure 1.12.0-rc2]] 
++ Bug fix: [[https://github.com/clojars/clojars-web/commit/2df51fb53ed39fdd75e1637828b786015edce314][Properly rotate log files]] 
++ [[https://github.com/clojars/clojars-web/commit/ac9e6733a261ebb18d305379ef95f34d42fe3ef5][Upgrade to Clojure 1.12.0-rc1]]
++ [[https://github.com/clojars/clojars-web/commit/78a7408d3b1f614c477b047a17c5938aa60687b8][Upgrade to clojure 1.12.0-rc2]] 
 
 * July 2024
   :PROPERTIES:
