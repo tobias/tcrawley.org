@@ -12,12 +12,54 @@
 This worklog covers work performed on [[https://clojars.org][Clojars]] under a contract from
 the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The contract covers general maintenance.
 
+* December 2024
+  :PROPERTIES:
+  :CUSTOM_ID: dec-2024
+  :END:
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-december][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/7da06ec54d579d01578b2ee62bd20deeb1d87fe6...739b3a062370a75a8f6217a3d73ce5e42225c145][~clojars-web~ commits]]
+
++ Added a new API to provide a [[https://github.com/clojars/clojars-web/pull/896][release feed]]
+
+* November 2024
+  :PROPERTIES:
+  :CUSTOM_ID: nov-2024
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-november][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/7414339136d6ac3455525fd949ee8372ff15ea03...7da06ec54d579d01578b2ee62bd20deeb1d87fe6][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/e801cb297560b911c9b1ad01cd46c805d16eeed3...dea9364b1bf31d0018909d2a34c68d628118d65a][~infrastructure~ commits]]
+
++ Worked with a new contributor ([[https://github.com/opoku][Osei Poku]]) to [[https://github.com/clojars/clojars-web/pull/893][implement a sitemap]]
++ Constrained heap usages for cron tasks to prevent competition with the webapp
+  (this was causing the server instance to become unavailable on occasion)
+
+* October 2024
+  :PROPERTIES:
+  :CUSTOM_ID: oct-2024
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-october][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/4dc64513a676198f9971f1609246e92d83d6a110...7414339136d6ac3455525fd949ee8372ff15ea03][~clojars-web~ commits]] |  [[https://github.com/clojars/infrastructure/compare/28a7362e772902241162ebcfdb6e8bc228c3b35c...e801cb297560b911c9b1ad01cd46c805d16eeed3][~infrastructure~ commits]]
+
++ [[https://github.com/clojars/infrastructure/commit/93724045d5afcebdce9819c9b7f0fbdd46221538][Increased max upload size from 20MB to 30MB]] This is to allow larger artifacts
+  to be uploaded, now that we see native builds more often.
++ [[https://github.com/clojars/clojars-web/commit/4c461c4b546350536b19988f9391d3fe9d27e822][Addressed CVEs]]
+
+* September 2024
+  :PROPERTIES:
+  :CUSTOM_ID: sept-2024
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-september][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/2202a352e84c9eb63671d2163ae94bc96e4a331e...0537bc843a8ace13f7ff716410975949587ec7ae][~clojars-web~ commits]] |  [[https://github.com/clojars/infrastructure/compare/6cf9c100e38408016cd979f1611602523766200e...28a7362e772902241162ebcfdb6e8bc228c3b35c][~infrastructure~ commits]]
+
++ [[https://github.com/clojars/clojars-web/commit/7760c34369f0d107bfa26a3703e1334f32f531e3][Upgraded to clojure 1.12.0]]
++ [[https://github.com/clojars/infrastructure/commit/28a7362e772902241162ebcfdb6e8bc228c3b35c][Upgraded to java 21]]
++ [[https://github.com/clojars/clojars-web/pull/886][Added hcaptcha to signup form]]
++ [[https://github.com/clojars/clojars-web/commit/e644fcc9a414b628e8b5de8772f8ec2ccf95d7f5][Fixed status-message sending on validation failure]]
+
 * August 2024
   :PROPERTIES:
   :CUSTOM_ID: aug-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/0d6640ae647f8b075e74c1b3d20128dccbadebc5...fc00a38a5814dcea44522f91750e981df8893f7e][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14...6cf9c100e38408016cd979f1611602523766200e][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-august][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/0d6640ae647f8b075e74c1b3d20128dccbadebc5...2202a352e84c9eb63671d2163ae94bc96e4a331e][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14...6cf9c100e38408016cd979f1611602523766200e][~infrastructure~ commits]]
 
 + Bug fix: [[https://github.com/clojars/clojars-web/commit/978eeab87928772c158fa454aeb9c8c1e630b8d2][Ensure jetty patch to send status message is always applied]]
 + Bug fix: [[https://github.com/clojars/clojars-web/commit/2df51fb53ed39fdd75e1637828b786015edce314][Properly rotate log files]] 
@@ -29,7 +71,7 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
   :CUSTOM_ID: jul-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/662e10febf1267b1e67c321b1aa337550f3d7a29...0d6640ae647f8b075e74c1b3d20128dccbadebc5][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/59cec6c2924811f07d5e231923e642f6306fee05...c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-july][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/662e10febf1267b1e67c321b1aa337550f3d7a29...0d6640ae647f8b075e74c1b3d20128dccbadebc5][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/59cec6c2924811f07d5e231923e642f6306fee05...c4cfac16c9bbdd1cb6907a4a0daf3c775cd1ce14][~infrastructure~ commits]]
 
 + Bug fix: [[https://github.com/clojars/clojars-web/commit/b7d7d99bacfb863ddc9139d895640b8bf9a7b3fa][Properly delete artifacts from S3]]
 + clj-kondo ugrade and linting cleanup
@@ -41,7 +83,7 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
   :CUSTOM_ID: jun-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/a59efb6128f2ae355df359a57bf06d6b8b0289cc...b5fbe9ea512654dd64418967f702921e70a6397b][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/5cb87635b43bf3febe3187940e53ce0ecbf918fd...59cec6c2924811f07d5e231923e642f6306fee05][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-june][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/a59efb6128f2ae355df359a57bf06d6b8b0289cc...b5fbe9ea512654dd64418967f702921e70a6397b][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/5cb87635b43bf3febe3187940e53ce0ecbf918fd...59cec6c2924811f07d5e231923e642f6306fee05][~infrastructure~ commits]]
 
 + [[https://github.com/clojars/clojars-web/commit/4acf752f11adf2a32041f8788852771c5eb909fa][Upgrade nippy to address CVE-2024-36124]]
 + [[https://github.com/clojars/infrastructure/commit/02f51fd94057680ddb4e205e73ba2d8d82547b57][Upgrade LoadBalancer SSL policy]]
@@ -52,7 +94,7 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
   :CUSTOM_ID: may-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/89e33a5a60f10ccb33e59d3a418a224bcb4af0dd...a59efb6128f2ae355df359a57bf06d6b8b0289cc][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/190777d4270533d7d4316bb7f2e911cb80ee0dc1...5cb87635b43bf3febe3187940e53ce0ecbf918fd][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-may][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/89e33a5a60f10ccb33e59d3a418a224bcb4af0dd...a59efb6128f2ae355df359a57bf06d6b8b0289cc][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/190777d4270533d7d4316bb7f2e911cb80ee0dc1...5cb87635b43bf3febe3187940e53ce0ecbf918fd][~infrastructure~ commits]]
 
 + [[https://github.com/clojars/infrastructure/commit/e84ca04ec2bb304212751d709c168d781cd101ae][Add wrappers for hashicorp tools to ensure consistent version usage]]
 + [[https://github.com/clojars/clojars-web/pull/882][Ensure emails are downcased; don't allow future duplicate email usage]]
@@ -63,7 +105,7 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
   :CUSTOM_ID: apr-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/4a109fd875b0101164c2349b31a1fa624a7f28be...89e33a5a60f10ccb33e59d3a418a224bcb4af0dd][~clojars-web~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-april][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/4a109fd875b0101164c2349b31a1fa624a7f28be...89e33a5a60f10ccb33e59d3a418a224bcb4af0dd][~clojars-web~ commits]]
 
 Mostly maintenance work this month related to error handling and tightening error boundaries.
 
@@ -80,7 +122,7 @@ Mostly maintenance work this month related to error handling and tightening erro
   :CUSTOM_ID: mar-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/0b131ebcaf21b33cb7106026726d571e4fc47d1c...4a109fd875b0101164c2349b31a1fa624a7f28be][~clojars-web~]], [[https://github.com/clojars/infrastructure/compare/4d5993b0860857276a13874ec42e89f238c30188...190777d4270533d7d4316bb7f2e911cb80ee0dc1][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-march][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/0b131ebcaf21b33cb7106026726d571e4fc47d1c...4a109fd875b0101164c2349b31a1fa624a7f28be][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/4d5993b0860857276a13874ec42e89f238c30188...190777d4270533d7d4316bb7f2e911cb80ee0dc1][~infrastructure~ commits]]
 
 + [[https://github.com/clojars/infrastructure/commit/a50476c3073a7b5269a27cac8ce3b5085433fe22][Upgrade from Amazon Linux 2 to Amazon Linux 2023]]
 + [[https://github.com/clojars/clojars-web/commit/8160f6320156ac890b72aec5d3f97263a45bcd60][Updates to error handling and reporting to allow more to be reported]]
@@ -91,7 +133,7 @@ Mostly maintenance work this month related to error handling and tightening erro
   :CUSTOM_ID: feb-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/compare/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3...0b131ebcaf21b33cb7106026726d571e4fc47d1c][~clojars-web~]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2024-february][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3...0b131ebcaf21b33cb7106026726d571e4fc47d1c][~clojars-web~ commits]]
 
 This month was a smattering of small changes/fixes:
 
@@ -106,6 +148,6 @@ This month was a smattering of small changes/fixes:
   :CUSTOM_ID: jan-2024
   :END:
 
-*Commit Logs:* [[https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3][~clojars-web~]], [[https://github.com/clojars/infrastructure/commit/4d5993b0860857276a13874ec42e89f238c30188][~infrastructure~]]
+[[https://github.com/clojars/clojars-web/commit/4c63223f47bd4d94e879acfbfdee8ea6ecd869e3][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/commit/4d5993b0860857276a13874ec42e89f238c30188][~infrastructure~ commits]]
 
-I upgraded the PostgreSQL database from v12.1 to v15.5.
++ I upgraded the PostgreSQL database from v12.1 to v15.5.

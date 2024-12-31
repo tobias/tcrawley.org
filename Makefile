@@ -4,7 +4,10 @@ build: node_modules
 serve: node_modules
 	node build serve
 
-deploy: build
+copy-worklog:
+	cp -r src/clojars-worklog build/
+
+deploy: build copy-worklog
 	rsync -avz build/* tcrawley.org:tcrawley.org    	
 
 node_modules: package.json
