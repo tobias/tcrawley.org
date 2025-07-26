@@ -2,9 +2,7 @@
   "site": {
     "title": "Toby Crawley",
     "url": "http://tcrawley.org",
-    "twitter": "http://twitter.com/tcrawley",
     "github": "https://github.com/tobias",
-    "linkedin": "https://www.linkedin.com/in/tobycrawley",
     "featuredProjects": [
       {"name": "Clojars",
        "url": "https://clojars.org",
