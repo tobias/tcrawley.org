@@ -20,3 +20,47 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
 [[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-march][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/0aaeb277fa4ff7ce75533d6a915ff226b5f10c1d...4305d17c2e29547c1e41f06d87eb964b63317187][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/42610d719338aba1b44a84d8c437f82a39fd5591...de0b7b7d2d21fc6178c563297c1d90737c0ed164][~infrastructure~ commits]]
 
 + [[https://github.com/clojars/clojars-web/commit/4305d17c2e29547c1e41f06d87eb964b63317187][Alpha sort dependencies & dependents]]
+
+* April 2025
+  :PROPERTIES:
+  :CUSTOM_ID: apr-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-april][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/b5ffaa808efa4089c7f80fe1eeb3ae3b86919cdc...5d50868decdf95b8014a957f4f88635695dcc3ee][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/de0b7b7d2d21fc6178c563297c1d90737c0ed164...4d7655b0192a77f32bf31e1a320d034b8fa1aeac][~infrastructure~ commits]]
+
+- I finally addressed issues with running out of memory on occasion. It turned out to be the in-memory session store; we were using [[https://github.com/kirasystems/aging-session][aging
+  sessions]], but we were generating enough sessions in 48 hours (the session ttl) to exhaust the heap. [[https://github.com/clojars/clojars-web/commit/5d50868decdf95b8014a957f4f88635695dcc3ee][Adjusting the ttl to 1 hour]] solved the problem, but a better long-term solution would be to not create a session until a user logs in, as that is all we need a session for. Clojars currently creates a session for each visit to the site.
+- Clojars was storing uploads in ~/tmp~ during deploys, and there is no signal to when a deploy is complete, so we can't delete them at the end of the deploy. This was causing the server to run out of disk space, so I [[https://github.com/clojars/clojars-web/commit/318fff4a23feaf6931e326e50d735c6c4363629a][moved upload storage to a larger partition]], and made [[https://github.com/clojars/infrastructure/commit/164091a948bb8b67cd9edd6cc5ff68bd7860b494][tmp file cleanup happen more often]].
+- We had some client that was repeatedly connecting to Clojars, then failing TLS negotiation, then trying again. This caused our AWS load balancer expense to increase by several hundred dollars, so I [[https://github.com/clojars/infrastructure/commit/ed2e08cb17d835409deec91ac4b52b0308b9a983][blocked that IP address from accessing Clojars]].
+
+* May 2025
+  :PROPERTIES:
+  :CUSTOM_ID: may-2025
+  :END:
+
+[[https://github.com/clojars/infrastructure/compare/4d7655b0192a77f32bf31e1a320d034b8fa1aeac...b2e0e61850d9480a7ef16d3dea3075174dd5d862][~infrastructure~ commits]]
+
+I did little on Clojars in May.
+
+* June 2025
+  :PROPERTIES:
+  :CUSTOM_ID: jun-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-june][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/5d50868decdf95b8014a957f4f88635695dcc3ee...0fcafd1a499d7c800d1ed6cff8f127d60930b79a][~clojars-web~ commits]]
+
+June was a busy month for Clojars, with mostly security work. I worked with [[https://github.com/frenchy64][Ambrose Bonnaire-Sergeant]] on:
++ [[https://github.com/clojars/clojars-web/commit/baade8967c7be8abd9a9b27499c511efd41f6164][Fixing]], then [[https://github.com/clojars/clojars-web/commit/d3623de947dcba56392c3e2bc3041ed3c1bf89a5][inlining]] a ~deps.edn~ alias we used to override versions to resolve CVEs. We weren't actually using the alias when building the uberjar, and then realized we didn't need the alias at all, as those dependencies could be top-level.
++ [[https://github.com/clojars/clojars-web/pull/907][Adding a ~pom.xml~]] to the repository to allow Dependabot to detect vulnerable dependencies.
++ [[https://github.com/clojars/clojars-web/pull/905][Importing/adding clj-kondo configurations]] for dependencies to give better linting.
+
+I also upgraded a few dependencies, and addressed a CVE.
+
+* July 2025
+  :PROPERTIES:
+  :CUSTOM_ID: jul-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/compare/0fcafd1a499d7c800d1ed6cff8f127d60930b79a...759866053761e9f685f52520c61fa2bad10ee4b9][~clojars-web~ commits]]
+
+This month I worked on spiking out how to implement using [[https://www.rfc-editor.org/rfc/rfc9457][Problem Details (rfc9457)]] to return deploy validation failures to the client. See [[https://github.com/clojars/clojars-web/issues/911][this issue]] for more details.

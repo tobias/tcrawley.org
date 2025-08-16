@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-31 Mon 02:09 -->
+<!-- 2025-08-16 Sat 08:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Clojars Worklog - 2025</title>
@@ -204,6 +204,10 @@
 <ul>
 <li><a href="#intro">Intro</a></li>
 <li><a href="#mar-2025">March 2025</a></li>
+<li><a href="#apr-2025">April 2025</a></li>
+<li><a href="#may-2025">May 2025</a></li>
+<li><a href="#jun-2025">June 2025</a></li>
+<li><a href="#jul-2025">July 2025</a></li>
 </ul>
 </div>
 </div>
@@ -228,10 +232,70 @@ the <a href="https://www.clojuriststogether.org/">Clojurists Together Foundation
 </ul>
 </div>
 </div>
+<div id="outline-container-apr-2025" class="outline-2">
+<h2 id="apr-2025">April 2025</h2>
+<div class="outline-text-2" id="text-apr-2025">
+<p>
+<a href="https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-april">CHANGELOG</a> | <a href="https://github.com/clojars/clojars-web/compare/b5ffaa808efa4089c7f80fe1eeb3ae3b86919cdc...5d50868decdf95b8014a957f4f88635695dcc3ee"><code>clojars-web</code> commits</a> | <a href="https://github.com/clojars/infrastructure/compare/de0b7b7d2d21fc6178c563297c1d90737c0ed164...4d7655b0192a77f32bf31e1a320d034b8fa1aeac"><code>infrastructure</code> commits</a>
+</p>
+
+<ul class="org-ul">
+<li>I finally addressed issues with running out of memory on occasion. It turned out to be the in-memory session store; we were using <a href="https://github.com/kirasystems/aging-session">aging
+sessions</a>, but we were generating enough sessions in 48 hours (the session ttl) to exhaust the heap. <a href="https://github.com/clojars/clojars-web/commit/5d50868decdf95b8014a957f4f88635695dcc3ee">Adjusting the ttl to 1 hour</a> solved the problem, but a better long-term solution would be to not create a session until a user logs in, as that is all we need a session for. Clojars currently creates a session for each visit to the site.</li>
+<li>Clojars was storing uploads in <code>/tmp</code> during deploys, and there is no signal to when a deploy is complete, so we can&rsquo;t delete them at the end of the deploy. This was causing the server to run out of disk space, so I <a href="https://github.com/clojars/clojars-web/commit/318fff4a23feaf6931e326e50d735c6c4363629a">moved upload storage to a larger partition</a>, and made <a href="https://github.com/clojars/infrastructure/commit/164091a948bb8b67cd9edd6cc5ff68bd7860b494">tmp file cleanup happen more often</a>.</li>
+<li>We had some client that was repeatedly connecting to Clojars, then failing TLS negotiation, then trying again. This caused our AWS load balancer expense to increase by several hundred dollars, so I <a href="https://github.com/clojars/infrastructure/commit/ed2e08cb17d835409deec91ac4b52b0308b9a983">blocked that IP address from accessing Clojars</a>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-may-2025" class="outline-2">
+<h2 id="may-2025">May 2025</h2>
+<div class="outline-text-2" id="text-may-2025">
+<p>
+<a href="https://github.com/clojars/infrastructure/compare/4d7655b0192a77f32bf31e1a320d034b8fa1aeac...b2e0e61850d9480a7ef16d3dea3075174dd5d862"><code>infrastructure</code> commits</a>
+</p>
+
+<p>
+I did little on Clojars in May.
+</p>
+</div>
+</div>
+<div id="outline-container-jun-2025" class="outline-2">
+<h2 id="jun-2025">June 2025</h2>
+<div class="outline-text-2" id="text-jun-2025">
+<p>
+<a href="https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-june">CHANGELOG</a> | <a href="https://github.com/clojars/clojars-web/compare/5d50868decdf95b8014a957f4f88635695dcc3ee...0fcafd1a499d7c800d1ed6cff8f127d60930b79a"><code>clojars-web</code> commits</a>
+</p>
+
+<p>
+June was a busy month for Clojars, with mostly security work. I worked with <a href="https://github.com/frenchy64">Ambrose Bonnaire-Sergeant</a> on:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/clojars/clojars-web/commit/baade8967c7be8abd9a9b27499c511efd41f6164">Fixing</a>, then <a href="https://github.com/clojars/clojars-web/commit/d3623de947dcba56392c3e2bc3041ed3c1bf89a5">inlining</a> a <code>deps.edn</code> alias we used to override versions to resolve CVEs. We weren&rsquo;t actually using the alias when building the uberjar, and then realized we didn&rsquo;t need the alias at all, as those dependencies could be top-level.</li>
+<li><a href="https://github.com/clojars/clojars-web/pull/907">Adding a <code>pom.xml</code></a> to the repository to allow Dependabot to detect vulnerable dependencies.</li>
+<li><a href="https://github.com/clojars/clojars-web/pull/905">Importing/adding clj-kondo configurations</a> for dependencies to give better linting.</li>
+</ul>
+
+<p>
+I also upgraded a few dependencies, and addressed a CVE.
+</p>
+</div>
+</div>
+<div id="outline-container-jul-2025" class="outline-2">
+<h2 id="jul-2025">July 2025</h2>
+<div class="outline-text-2" id="text-jul-2025">
+<p>
+<a href="https://github.com/clojars/clojars-web/compare/0fcafd1a499d7c800d1ed6cff8f127d60930b79a...759866053761e9f685f52520c61fa2bad10ee4b9"><code>clojars-web</code> commits</a>
+</p>
+
+<p>
+This month I worked on spiking out how to implement using <a href="https://www.rfc-editor.org/rfc/rfc9457">Problem Details (rfc9457)</a> to return deploy validation failures to the client. See <a href="https://github.com/clojars/clojars-web/issues/911">this issue</a> for more details.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Toby Crawley</p>
-<p class="date">Created: 2025-03-31 Mon 02:09</p>
+<p class="date">Created: 2025-08-16 Sat 08:22</p>
 </div>
 </body>
 </html>
