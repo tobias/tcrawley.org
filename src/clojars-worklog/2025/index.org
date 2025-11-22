@@ -64,3 +64,42 @@ I also upgraded a few dependencies, and addressed a CVE.
 [[https://github.com/clojars/clojars-web/compare/0fcafd1a499d7c800d1ed6cff8f127d60930b79a...759866053761e9f685f52520c61fa2bad10ee4b9][~clojars-web~ commits]]
 
 This month I worked on spiking out how to implement using [[https://www.rfc-editor.org/rfc/rfc9457][Problem Details (rfc9457)]] to return deploy validation failures to the client. See [[https://github.com/clojars/clojars-web/issues/911][this issue]] for more details.
+
+* August 2025
+  :PROPERTIES:
+  :CUSTOM_ID: aug-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-august][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/759866053761e9f685f52520c61fa2bad10ee4b9...f85bdca1ac389156e48c5bbe72f42b2cab1faf97][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/b2e0e61850d9480a7ef16d3dea3075174dd5d862...a89ec7a62f446edb3d095929beb864995e494121][~infrastructure~ commits]]
+
+Mostly maintenance work and upgrades this month, including [[https://github.com/clojars/infrastructure/commit/a89ec7a62f446edb3d095929beb864995e494121][enabling S3 backups]] and [[https://github.com/clojars/clojars-web/commit/a84e8b935965c699130c1659bf87d9a4f6a6a65c][upgrading to Clojure 1.12.2.]] 
+
+* September 2025
+  :PROPERTIES:
+  :CUSTOM_ID: sep-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-september][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/f85bdca1ac389156e48c5bbe72f42b2cab1faf97...ec37166d8cc5fb6b5b8ecf05691b672ec73c2f01
+][~clojars-web~ commits]]
+
+Also mostly maintenance work and upgrades this month, including [[https://github.com/clojars/clojars-web/pull/912][removing reliance on deprecated buddy functions]] and [[https://github.com/clojars/clojars-web/commit/cb3f1ba63c4c573a19a7d986916c4246561a7d22][addressing a CVE]].
+
+* October 2025
+  :PROPERTIES:
+  :CUSTOM_ID: oct-2025
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-october][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/ec37166d8cc5fb6b5b8ecf05691b672ec73c2f01...d46668f0e1f535f803ae2b8e110ffcef5ab9f124][~clojars-web~ commits]]
+
+Upgrades! Upgrades! Upgrades!
+
++ [[https://github.com/clojars/clojars-web/commit/43b2f041b4ae994e6c39d07fce5b89b850bc692c][Java 25]] (for CI, production Java 25 comes later in November)
++ [[https://github.com/clojars/clojars-web/commit/f9bb6c85b32e248b3d03787add483cc8a2759f9d][Clojure 1.12.3]]
++ [[https://github.com/clojars/clojars-web/commit/e490258db24d6392ffba06d907ea36ad07e8eca4][Logback]] (to address a CVE)
+  
+* November 2025
+  :PROPERTIES:
+  :CUSTOM_ID: nov-2025
+  :END:
+
+ [[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-november][CHANGELOG]] 
