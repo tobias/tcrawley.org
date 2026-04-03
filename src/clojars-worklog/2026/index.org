@@ -17,8 +17,18 @@ the [[https://www.clojuriststogether.org/][Clojurists Together Foundation]]. The
   :CUSTOM_ID: jan-2026
   :END:
 
-[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2025-march][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/0aaeb277fa4ff7ce75533d6a915ff226b5f10c1d...4305d17c2e29547c1e41f06d87eb964b63317187][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/42610d719338aba1b44a84d8c437f82a39fd5591...de0b7b7d2d21fc6178c563297c1d90737c0ed164][~infrastructure~ commits]]
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2026-january][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/6008d9b73add2c38c0c738eb47203be9b01278cc...a6720c5961bf98f68075e784404e15b538b1db09][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/48ddd9c5968d306b2d539473b32a024f9ef80e93...a8260751d8c0029f4993e406e509e66907006b76][~infrastructure~ commits]]
 
 + [[https://github.com/clojars/clojars-web/pull/921][Use database data for Maven indexing]]. This uses the exported POMs from the DB instead of syncing down POMs from S3 to reduce AWS costs.
 + Many [[https://github.com/clojars/clojars-web/commit/5822c3d5f2001f8f8bed4f877a27d05cad24ca6b][stale dependency]] and [[https://github.com/clojars/clojars-web/commit/9d13237c6e40cce7a4905d23cffb61e1cd316b1b][tooling]] [[https://github.com/clojars/clojars-web/commit/b07eaddf9bf69c490c6a2ccaa0ffae68844da409][upgrades]].
+
+* March 2026
+  :PROPERTIES:
+  :CUSTOM_ID: mar-2026
+  :END:
+
+[[https://github.com/clojars/clojars-web/blob/main/CHANGELOG.org#2026-march][CHANGELOG]] | [[https://github.com/clojars/clojars-web/compare/a6720c5961bf98f68075e784404e15b538b1db09...fee5d496e47955e63a827fadad43b7abae60bff7][~clojars-web~ commits]] | [[https://github.com/clojars/infrastructure/compare/a8260751d8c0029f4993e406e509e66907006b76...f6aeb9c83b0e4b56efcdbbcab7d41adfed09822a][~infrastructure~ commits]]
+
++ [[https://github.com/clojars/clojars-web/pull/923][Use fork of http-kit instead of jetty]]. This removes jetty as a dependency as we don't need its complexity and it often brings in CVEs. 
++ [[https://github.com/clojars/clojars-web/pull/924][Implement RFC 9457 Problem Details responses on deploy validation failures]]
 
